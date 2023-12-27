@@ -21,4 +21,16 @@
     <PackageReference Include="Microsoft.Playwright.MSTest" Version="1.40.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="src\" />
+    <None Remove="src\Pages\" />
+    <None Remove="src\Tests\" />
+    <None Remove="src\Utils\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\" />
+    <Folder Include="src\Pages\" />
+    <Folder Include="src\Tests\" />
+    <Folder Include="src\Utils\" />
+  </ItemGroup>
 </Project>
