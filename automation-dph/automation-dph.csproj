@@ -17,7 +17,7 @@
     <PackageReference Include="coverlet.collector" Version="3.2.0" />
     <PackageReference Include="ExtentReports" Version="5.0.2" />
     <PackageReference Include="NLog.Config" Version="4.7.15" />
-    <PackageReference Include="NLog" Version="5.2.7" />
+    <PackageReference Include="NLog" Version="5.2.8" />
     <PackageReference Include="Microsoft.Playwright.MSTest" Version="1.40.0" />
   </ItemGroup>
 
@@ -26,11 +26,23 @@
     <None Remove="src\Pages\" />
     <None Remove="src\Tests\" />
     <None Remove="src\Utils\" />
+    <None Remove="TestScenarios\" />
+    <None Remove="src\Assertions\" />
+    <None Remove="reports\" />
+    <None Remove="screenshots\" />
+    <None Remove="data\" />
+    <None Remove="src\Api\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\" />
     <Folder Include="src\Pages\" />
     <Folder Include="src\Tests\" />
     <Folder Include="src\Utils\" />
+    <Folder Include="TestScenarios\" />
+    <Folder Include="src\Assertions\" />
+    <Folder Include="reports\" />
+    <Folder Include="screenshots\" />
+    <Folder Include="data\" />
+    <Folder Include="src\Api\" />
   </ItemGroup>
 </Project>
