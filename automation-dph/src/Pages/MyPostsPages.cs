@@ -4,8 +4,10 @@
     {
         public MyPostsPages(IPage page, PageTest pageTest) : base(page, pageTest)
         {
-
+            MyPostsElementNameList = new(Page, PageTest);
         }
+
+        public MyPostsElementNameList MyPostsElementNameList { get; private set; } = null!;
 
         // LABELS
         private ILocator LblMyPostsTitlePage => Page.Locator(".page-title");
@@ -169,11 +171,232 @@
         public string GetValueOfHubsDropdownfield { get { return Hubs_Dropdown.InnerTextAsync().GetAwaiter().GetResult(); } }
         public string GetValueOfNumberOfPostsDisplay { get { return LblPaginationPostsNumberDisplay.First.InnerTextAsync().GetAwaiter().GetResult(); } }
 
+
+
         public async Task LogoutToWebApplication()
         {
             await BtnUserProfileIcon.ClickAsync();
             await BtnLogout.ClickAsync();
             _logger.Info("Logged out into application.");
+        }
+
+
+        public async Task InputSearchValue(string value)
+        {
+            await TxtSearch.ClickAsync();
+            await TxtSearch.FillAsync(value);
+            await Page.WaitForTimeoutAsync(2000); // need timeout due to data loading
+            _logger.Info($"Searched for {value}.");
+        }
+
+        public async Task ChangeFilterBySearch(string filterBy)
+        {
+            await DdlSearchPost.ClickAsync();
+            await Page.WaitForTimeoutAsync(2000);
+            switch (filterBy)
+            {
+                case MyPostsElementNameList.SearchType.REFERENCE_NUMBER:
+                    await ArrowActionDown(0);
+                    _logger.Info($"Searched by {filterBy}");
+                    break;
+                case MyPostsElementNameList.SearchType.CUSTOMER_NAME:
+                    await ArrowActionDown(1);
+                    _logger.Info($"Searched by {filterBy}");
+                    break;
+                case MyPostsElementNameList.SearchType.PICKUP_CITY:
+                    await ArrowActionDown(2);
+                    _logger.Info($"Searched by {filterBy}");
+                    break;
+                case MyPostsElementNameList.SearchType.POSTID:
+                    await ArrowActionDown(3);
+                    _logger.Info($"Searched by {filterBy}");
+                    break;
+                case MyPostsElementNameList.SearchType.DELIVERY_TRACKING_NUMBER:
+                    await ArrowActionDown(4);
+                    _logger.Info($"Searched by {filterBy}");
+                    break;
+                default:
+                    throw new InvalidOperationException($"No such {filterBy} on the lists.");
+            }
+        }
+
+        private async Task ArrowActionDown(int action)
+        {
+            await Page.WaitForTimeoutAsync(2000); // wait for the list to load
+            for (int i = 0; i < action; i++)
+            {
+                await Page.Keyboard.PressAsync("ArrowDown");
+            }
+
+            await Page.Keyboard.PressAsync("Enter");
+            await LblMyPostsTitlePage.ClickAsync();
+        }
+
+        public async Task ChangeFilterByHubs(string store)
+        {
+            await Page.WaitForTimeoutAsync(2000); // wait for the list to load
+            await DdlHubs.ClickAsync();
+            switch (store)
+            {
+                case "All hubs":
+                    await ArrowActionDown(0);
+                    _logger.Info($"Hubs filtered by {store}");
+                    break;
+                case "QA Store":
+                    await ArrowActionDown(1);
+                    _logger.Info($"Hubs filtered by {store}");
+                    break;
+                case "Gracel":
+                    await ArrowActionDown(2);
+                    _logger.Info($"Hubs filtered by {store}");
+                    break;
+                default:
+                    throw new InvalidOperationException($"No {store} exist.");
+            }
+            await Page.WaitForTimeoutAsync(2000); // wait for the list to load
+        }
+
+        public async Task ChangeFilterByStatus(string status)
+        {
+            await DdlStatus.ClickAsync();
+
+            ILocator StatusCheckbox = Page.Locator($"text='{status}'");
+            await StatusCheckbox.ClickAsync();
+            await Page.WaitForTimeoutAsync(3000);// wait for the list to load
+            _logger.Info($"Status filtered by {status}");
+        }
+
+        //public async Task ChangeFilterByPartner(string partner)
+        //{
+        //    await DdlPreferredPartner.ClickAsync();
+        //    //await Page.WaitForTimeoutAsync(3000); // wait for the list of options to load
+        //    switch (partner)
+        //    {
+        //        case "Prime Movers":
+        //            await SelectPreferredPartnerFromDropdown(FilterTypeListName.PreferredPartner.PRIME_MOVERS);
+        //            //await ArrowActionDown(1);
+        //            _logger.Info($"Preferred Partner filtered by {partner}.");
+        //            break;
+        //        case "LIBCAP Super Express Corporation":
+        //            await SelectPreferredPartnerFromDropdown(FilterTypeListName.PreferredPartner.LIBCAP);
+        //            _logger.Info($"Preferred Partner filtered by {partner}.");
+        //            break;
+        //        case "Fleet PH":
+        //            await SelectPreferredPartnerFromDropdown(FilterTypeListName.PreferredPartner.FLEET_PH_PROVIDER_QA);
+        //            _logger.Info($"Preferred Partner filtered by {partner}.");
+        //            break;
+        //        case "Sandbox Business":
+        //            await SelectPreferredPartnerFromDropdown(FilterTypeListName.PreferredPartner.SANDBOX_BUSINESS);
+        //            _logger.Info($"Preferred Partner filtered by {partner}.");
+        //            break;
+        //        case "Sandbox QuadX":
+        //            await SelectPreferredPartnerFromDropdown(FilterTypeListName.PreferredPartner.SANDBOX_QUADX);
+        //            _logger.Info($"Preferred Partner filtered by {partner}.");
+        //            break;
+        //        case "Sandbox Ondemand Provider":
+        //            await SelectPreferredPartnerFromDropdown(FilterTypeListName.PreferredPartner.SANDBOX_ONDEMAND_PROVIDER);
+        //            _logger.Info($"Preferred Partner filtered by {partner}.");
+        //            break;
+        //        case "Lalamove":
+        //            await SelectPreferredPartnerFromDropdown(FilterTypeListName.PreferredPartner.LALAMOVE);
+        //            _logger.Info($"Preferred Partner filtered by {partner}.");
+        //            break;
+        //        case "Worklink Services Inc":
+        //            await SelectPreferredPartnerFromDropdown(FilterTypeListName.PreferredPartner.WSI);
+        //            _logger.Info($"Preferred Partner filtered by {partner}.");
+        //            break;
+        //        case "Entrego Express Globe":
+        //            await SelectPreferredPartnerFromDropdown(FilterTypeListName.PreferredPartner.ENTREGO_GLOBE);
+        //            _logger.Info($"Preferred Partner filtered by {partner}.");
+        //            break;
+        //        case "Mr Speedy":
+        //            await SelectPreferredPartnerFromDropdown(FilterTypeListName.PreferredPartner.MRSPEEDY);
+        //            _logger.Info($"Preferred Partner filtered by {partner}.");
+        //            break;
+        //        case "NinjaVan":
+        //            await SelectPreferredPartnerFromDropdown(FilterTypeListName.PreferredPartner.NINJAVAN);
+        //            _logger.Info($"Preferred Partner filtered by {partner}.");
+        //            break;
+        //        case "QuadX_Zone":
+        //            //await SelectPreferredPartnerFromDropdown(FilterTypeListName.PreferredPartner.QUADX_ZONE);
+        //            await ArrowActionDown(33);
+        //            _logger.Info($"Preferred Partner filtered by {partner}.");
+        //            break;
+        //        case "Food Panda Philippines Inc.":
+        //            await SelectPreferredPartnerFromDropdown(FilterTypeListName.PreferredPartner.FOOD_PANDA);
+        //            _logger.Info($"Preferred Partner filtered by {partner}.");
+        //            break;
+        //        default:
+        //            throw new InvalidOperationException($"No preferred partner {partner} exist.");
+        //    }
+        //    await Page.WaitForTimeoutAsync(2000);
+        //}
+
+        private async Task SelectPreferredPartnerFromDropdown(string courier)
+        {
+            await Page.WaitForTimeoutAsync(3000); // wait for the list of options to load
+            ILocator hubsPreferred = Page.Locator($"text='{courier}'");
+            await hubsPreferred.First.ClickAsync();
+        }
+
+        public async Task ChangeFilterByDate(string date)
+        {
+            await DdlDate.ClickAsync();
+
+            ILocator DateButton = Page.Locator($"text='{date}'");
+            await DateButton.Last.ClickAsync();
+
+            await Page.WaitForTimeoutAsync(3000); // wait for the list to load
+        }
+
+        public async Task InputCustomDateRange(string dateFrom, string dateTo)
+        {
+            await TxtFromDateTimePicker.ClearAsync();
+            await TxtFromDateTimePicker.FillAsync(dateFrom);
+            await Page.Keyboard.PressAsync("Enter");
+            await TxtToDateTimePicker.ClearAsync();
+            await TxtToDateTimePicker.FillAsync(dateTo);
+            await Page.Keyboard.PressAsync("Enter");
+        }
+
+        public async Task SelectMarkAsReturned()
+        {
+            await BtnMyPostsEllipsis.ClickAsync();
+            await OptBtnMultipleMarkAsReturned.ClickAsync();
+            await Page.WaitForTimeoutAsync(3000);
+        }
+
+        public async Task RefreshBrowser()
+        {
+            await Page.ReloadAsync();
+        }
+
+        public async Task SelectMultiplePrintDefaultWaybill()
+        {
+            await BtnMyPostsEllipsis.ClickAsync();
+            await OptBtnMultiplePrintDefaultWaybill.ClickAsync();
+        }
+
+        public async Task SelectMultipleProviderDefaultWaybill()
+        {
+            await BtnMyPostsEllipsis.ClickAsync();
+            await OptBtnMultiplePrintProvidertWaybill.ClickAsync();
+        }
+
+        public async Task SelectNumberPaginationWaybill(string numberPage)
+        {
+            ILocator LnkWaybillPaginationNumber = Page.Locator($".modal__footer [aria-label='Go to page number {numberPage}']");
+            await LnkWaybillPaginationNumber.ClickAsync();
+        }
+
+        public async Task SelectNextPaginationWaybill()
+        {
+            await LnkWaybillNextPagination.ClickAsync();
+        }
+
+        public async Task SelectPreviousPaginationWaybill()
+        {
+            await LnkWaybillPreviousPagination.ClickAsync();
         }
     }
 }
