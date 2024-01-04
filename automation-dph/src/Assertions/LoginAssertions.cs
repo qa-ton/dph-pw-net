@@ -1,6 +1,4 @@
-﻿using AventStack.ExtentReports;
-using AventStack.ExtentReports.Model;
-
+﻿
 namespace automation_dph.src.Assertions
 {
     public class LoginAssertions : BasePageDriver
