@@ -7,3 +7,7 @@ global using automation_dph.src.Assertions;
 global using automation_dph.TestScenarios;
 global using automation_dph.data;
 global using automation_dph.src.Api;
+global using automation_dph.enums;
+global using automation_dph.appNameElements;
+global using AventStack.ExtentReports;
+global using AventStack.ExtentReports.Model;
