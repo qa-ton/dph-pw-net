@@ -15,7 +15,7 @@
         private ILocator LblDashStatus => Page.Locator(".customer .tooltip__text");
         private ILocator LblDashCouriername => Page.Locator(".courierName");
         private ILocator LblDashCompletionDate => Page.Locator(".job-items-container .list-item-container:nth-of-type(1) .position-relative");
-        private ILocator LblDashTrackingNumber => Page.Locator(".content__field:nth-of-type(21) [class='col-8']");
+        private ILocator LblDashTrackingNumber => Page.Locator(".content__field:nth-of-type(24) [class='col-8']");
         private ILocator LblNumberOfRecords => Page.Locator(".tw-bg-dark-4.tw-px-4.tw-py-2.tw-text-\\[11px\\]");
         private ILocator LblNumberOfSelectedCheckbox => Page.Locator("label#action-all");
         private ILocator LblPaginationPostsNumberDisplay => Page.Locator(".tw-font-semibold.tw-text-dark-2.tw-text-xs");
@@ -266,71 +266,71 @@
             _logger.Info($"Status filtered by {status}");
         }
 
-        //public async Task ChangeFilterByPartner(string partner)
-        //{
-        //    await DdlPreferredPartner.ClickAsync();
-        //    //await Page.WaitForTimeoutAsync(3000); // wait for the list of options to load
-        //    switch (partner)
-        //    {
-        //        case "Prime Movers":
-        //            await SelectPreferredPartnerFromDropdown(FilterTypeListName.PreferredPartner.PRIME_MOVERS);
-        //            //await ArrowActionDown(1);
-        //            _logger.Info($"Preferred Partner filtered by {partner}.");
-        //            break;
-        //        case "LIBCAP Super Express Corporation":
-        //            await SelectPreferredPartnerFromDropdown(FilterTypeListName.PreferredPartner.LIBCAP);
-        //            _logger.Info($"Preferred Partner filtered by {partner}.");
-        //            break;
-        //        case "Fleet PH":
-        //            await SelectPreferredPartnerFromDropdown(FilterTypeListName.PreferredPartner.FLEET_PH_PROVIDER_QA);
-        //            _logger.Info($"Preferred Partner filtered by {partner}.");
-        //            break;
-        //        case "Sandbox Business":
-        //            await SelectPreferredPartnerFromDropdown(FilterTypeListName.PreferredPartner.SANDBOX_BUSINESS);
-        //            _logger.Info($"Preferred Partner filtered by {partner}.");
-        //            break;
-        //        case "Sandbox QuadX":
-        //            await SelectPreferredPartnerFromDropdown(FilterTypeListName.PreferredPartner.SANDBOX_QUADX);
-        //            _logger.Info($"Preferred Partner filtered by {partner}.");
-        //            break;
-        //        case "Sandbox Ondemand Provider":
-        //            await SelectPreferredPartnerFromDropdown(FilterTypeListName.PreferredPartner.SANDBOX_ONDEMAND_PROVIDER);
-        //            _logger.Info($"Preferred Partner filtered by {partner}.");
-        //            break;
-        //        case "Lalamove":
-        //            await SelectPreferredPartnerFromDropdown(FilterTypeListName.PreferredPartner.LALAMOVE);
-        //            _logger.Info($"Preferred Partner filtered by {partner}.");
-        //            break;
-        //        case "Worklink Services Inc":
-        //            await SelectPreferredPartnerFromDropdown(FilterTypeListName.PreferredPartner.WSI);
-        //            _logger.Info($"Preferred Partner filtered by {partner}.");
-        //            break;
-        //        case "Entrego Express Globe":
-        //            await SelectPreferredPartnerFromDropdown(FilterTypeListName.PreferredPartner.ENTREGO_GLOBE);
-        //            _logger.Info($"Preferred Partner filtered by {partner}.");
-        //            break;
-        //        case "Mr Speedy":
-        //            await SelectPreferredPartnerFromDropdown(FilterTypeListName.PreferredPartner.MRSPEEDY);
-        //            _logger.Info($"Preferred Partner filtered by {partner}.");
-        //            break;
-        //        case "NinjaVan":
-        //            await SelectPreferredPartnerFromDropdown(FilterTypeListName.PreferredPartner.NINJAVAN);
-        //            _logger.Info($"Preferred Partner filtered by {partner}.");
-        //            break;
-        //        case "QuadX_Zone":
-        //            //await SelectPreferredPartnerFromDropdown(FilterTypeListName.PreferredPartner.QUADX_ZONE);
-        //            await ArrowActionDown(33);
-        //            _logger.Info($"Preferred Partner filtered by {partner}.");
-        //            break;
-        //        case "Food Panda Philippines Inc.":
-        //            await SelectPreferredPartnerFromDropdown(FilterTypeListName.PreferredPartner.FOOD_PANDA);
-        //            _logger.Info($"Preferred Partner filtered by {partner}.");
-        //            break;
-        //        default:
-        //            throw new InvalidOperationException($"No preferred partner {partner} exist.");
-        //    }
-        //    await Page.WaitForTimeoutAsync(2000);
-        //}
+        public async Task ChangeFilterByPartner(string partner)
+        {
+            await DdlPreferredPartner.ClickAsync();
+            //await Page.WaitForTimeoutAsync(3000); // wait for the list of options to load
+            switch (partner)
+            {
+                case "Prime Movers":
+                    await SelectPreferredPartnerFromDropdown(MyPostsElementNameList.PreferredPartner.PRIME_MOVERS);
+                    //await ArrowActionDown(1);
+                    _logger.Info($"Preferred Partner filtered by {partner}.");
+                    break;
+                case "LIBCAP Super Express Corporation":
+                    await SelectPreferredPartnerFromDropdown(MyPostsElementNameList.PreferredPartner.LIBCAP);
+                    _logger.Info($"Preferred Partner filtered by {partner}.");
+                    break;
+                case "Fleet PH":
+                    await SelectPreferredPartnerFromDropdown(MyPostsElementNameList.PreferredPartner.FLEET_PH_PROVIDER_QA);
+                    _logger.Info($"Preferred Partner filtered by {partner}.");
+                    break;
+                case "Sandbox Business":
+                    await SelectPreferredPartnerFromDropdown(MyPostsElementNameList.PreferredPartner.SANDBOX_BUSINESS);
+                    _logger.Info($"Preferred Partner filtered by {partner}.");
+                    break;
+                case "Sandbox QuadX":
+                    await SelectPreferredPartnerFromDropdown(MyPostsElementNameList.PreferredPartner.SANDBOX_QUADX);
+                    _logger.Info($"Preferred Partner filtered by {partner}.");
+                    break;
+                case "Sandbox Ondemand Provider":
+                    await SelectPreferredPartnerFromDropdown(MyPostsElementNameList.PreferredPartner.SANDBOX_ONDEMAND_PROVIDER);
+                    _logger.Info($"Preferred Partner filtered by {partner}.");
+                    break;
+                case "Lalamove":
+                    await SelectPreferredPartnerFromDropdown(MyPostsElementNameList.PreferredPartner.LALAMOVE);
+                    _logger.Info($"Preferred Partner filtered by {partner}.");
+                    break;
+                case "Worklink Services Inc":
+                    await SelectPreferredPartnerFromDropdown(MyPostsElementNameList.PreferredPartner.WSI);
+                    _logger.Info($"Preferred Partner filtered by {partner}.");
+                    break;
+                case "Entrego Express Globe":
+                    await SelectPreferredPartnerFromDropdown(MyPostsElementNameList.PreferredPartner.ENTREGO_GLOBE);
+                    _logger.Info($"Preferred Partner filtered by {partner}.");
+                    break;
+                case "Mr Speedy":
+                    await SelectPreferredPartnerFromDropdown(MyPostsElementNameList.PreferredPartner.MRSPEEDY);
+                    _logger.Info($"Preferred Partner filtered by {partner}.");
+                    break;
+                case "NinjaVan":
+                    await SelectPreferredPartnerFromDropdown(MyPostsElementNameList.PreferredPartner.NINJAVAN);
+                    _logger.Info($"Preferred Partner filtered by {partner}.");
+                    break;
+                case "QuadX_Zone":
+                    //await SelectPreferredPartnerFromDropdown(MyPostsElementNameList.PreferredPartner.QUADX_ZONE);
+                    await ArrowActionDown(33);
+                    _logger.Info($"Preferred Partner filtered by {partner}.");
+                    break;
+                case "Food Panda Philippines Inc.":
+                    await SelectPreferredPartnerFromDropdown(MyPostsElementNameList.PreferredPartner.FOOD_PANDA);
+                    _logger.Info($"Preferred Partner filtered by {partner}.");
+                    break;
+                default:
+                    throw new InvalidOperationException($"No preferred partner {partner} exist.");
+            }
+            await Page.WaitForTimeoutAsync(2000);
+        }
 
         private async Task SelectPreferredPartnerFromDropdown(string courier)
         {
