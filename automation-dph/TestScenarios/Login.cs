@@ -21,6 +21,7 @@
             "1.8 Validate Blank value in Email field",
             "1.9 Validate Blank value in Password field",
             "1.12 Validate Blank value in Reset page Email field",
+            "5.10 Validate Applying date again (Yesterday)",
         };
 
         public string[] StepsToReplicate = new string[]
