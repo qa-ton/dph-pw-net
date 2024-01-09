@@ -472,8 +472,6 @@ namespace automation_dph.src.Assertions
             Extent.Flush();
         }
 
-        
-
     }
 }
 
