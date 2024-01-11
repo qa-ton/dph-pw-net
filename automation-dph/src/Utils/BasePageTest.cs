@@ -12,6 +12,8 @@ namespace automation_dph.src.Utils
         protected SearchFilterAssertions SearchFilterAssertions { get; private set; } = null!;
         protected SearchFilter SearchFilter { get; private set; } = null!;
         protected MarkAsReturnedAssertions MarkAsReturnedAssertions { get; private set; } = null!;
+        protected PrintWaybillAssertions PrintWaybillAssertions { get; private set; } = null!;
+        protected PaginationAssertions PaginationAssertions { get; private set; } = null!;
 
         [TestInitialize]
         public async Task TestPageInit()
@@ -34,6 +36,8 @@ namespace automation_dph.src.Utils
             SearchFilterAssertions = new(Page, PageTest);
             SearchFilter = new(Page, PageTest);
             MarkAsReturnedAssertions = new(Page, PageTest);
+            PrintWaybillAssertions = new(Page, PageTest);
+            PaginationAssertions = new(Page, PageTest);
 
             // Login
             await LoginPages.LoginToWebApplication(DataConfiguration.qaUsername, DataConfiguration.qaPassword);
