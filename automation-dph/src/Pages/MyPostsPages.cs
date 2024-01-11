@@ -2,6 +2,7 @@
 {
     public class MyPostsPages : BasePageDriver
     {
+
         public MyPostsPages(IPage page, PageTest pageTest) : base(page, pageTest)
         {
             MyPostsElementNameList = new(Page, PageTest);
@@ -28,6 +29,7 @@
         private ILocator LblDeliveryCity => Page.Locator(".delivery-city.item");
         private ILocator LblTags => Page.Locator(".item.tags-space");
         private ILocator LblCompletion => Page.Locator(".completion-date.item");
+        private ILocator LblProviderWaybillModalFooter => Page.Locator("div[role='document']  .pagination");
 
         // TEXT FIELDS
         private ILocator TxtSearch => Page.Locator("input[type='search']");
@@ -57,6 +59,9 @@
         private ILocator BtnNextPageIcon => Page.Locator(".tw-flex.tw-gap-3.tw-items-center > button:nth-of-type(2)");
         private ILocator BtnPreviousPageIcon => Page.Locator("button:nth-of-type(1) > .fa-chevron-left.fas");
         private ILocator BtnAddNewPosts => Page.Locator(".btn.btn-newPost");
+        private ILocator BtnCloseMultiplePrintDefaultWaybill => Page.Locator("i#close-multi-select-action");
+   
+
 
         // ITEM AND OPTION BUTTONS
         private ILocator BtnUserProfileIcon => Page.Locator(".fa.fa-user.glow-blue");
@@ -78,6 +83,7 @@
         private ILocator LnkWaybillPreviousPagination => Page.Locator(".modal__footer [aria-label='Go to previous page']");
         private ILocator LnkCancelledReturnedRejectedTab => Page.Locator("div:nth-of-type(2) > .item__name");
         private ILocator LnkAllTab => Page.Locator("div:nth-of-type(1) > .item__name");
+        private ILocator LnkWaybillNumberTwoPagination => Page.Locator(".modal__footer [aria-label='Go to page number 2']");
 
         // LISTS
         private ILocator LstSearchPostDropdown => Page.Locator("//div[@class='css-tegnl5 select-dropdown__menu-list']");
@@ -151,6 +157,9 @@
         public ILocator Completion_Label { get { return LblCompletion; } }
         public ILocator MyPostsEllipsisButton_List { get { return LstMyPostsEllipsisButton; } }
         public ILocator MyPosts_Dashboard { get { return DashMyPosts; } }
+        public ILocator CloseMultiplePrintDefaultWaybill_Button { get { return BtnCloseMultiplePrintDefaultWaybill; } }
+        public ILocator ProviderWaybillModalFooter_Label { get { return LblProviderWaybillModalFooter; } }
+        public ILocator WaybillNumberTwoPagination_Link { get { return LnkWaybillNumberTwoPagination; } }
 
 
         public string GetValueOfDashboardListLabel { get { return DashLstContainer.InnerTextAsync().GetAwaiter().GetResult(); } }
@@ -170,6 +179,7 @@
         public string GetValueOfAllStatusList { get { return StatusLstContainer.InnerTextAsync().GetAwaiter().GetResult(); } }
         public string GetValueOfHubsDropdownfield { get { return Hubs_Dropdown.InnerTextAsync().GetAwaiter().GetResult(); } }
         public string GetValueOfNumberOfPostsDisplay { get { return LblPaginationPostsNumberDisplay.First.InnerTextAsync().GetAwaiter().GetResult(); } }
+        public string GetValueOfProviderWaybillModalFooter { get { return LblProviderWaybillModalFooter.First.InnerTextAsync().GetAwaiter().GetResult(); } }
 
 
 
@@ -317,9 +327,13 @@
                     await SelectPreferredPartnerFromDropdown(MyPostsElementNameList.PreferredPartner.NINJAVAN);
                     _logger.Info($"Preferred Partner filtered by {partner}.");
                     break;
+                case "Sandbox_DX":
+                    await ArrowActionDown(32);
+                    _logger.Info($"Preferred Partner filtered by {partner}.");
+                    break;
                 case "QuadX_Zone":
                     //await SelectPreferredPartnerFromDropdown(MyPostsElementNameList.PreferredPartner.QUADX_ZONE);
-                    await ArrowActionDown(33);
+                    await ArrowActionDown(34);
                     _logger.Info($"Preferred Partner filtered by {partner}.");
                     break;
                 case "Food Panda Philippines Inc.":
