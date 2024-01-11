@@ -33,6 +33,9 @@
     <None Remove="data\" />
     <None Remove="src\Api\" />
     <None Remove="logs\" />
+    <None Remove="enums\" />
+    <None Remove="appNameElements\" />
+    <None Remove="screenshots\SearchFilter: Test Case 5.10 - FAILED\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\" />
@@ -46,5 +49,16 @@
     <Folder Include="data\" />
     <Folder Include="src\Api\" />
     <Folder Include="logs\" />
+    <Folder Include="enums\" />
+    <Folder Include="appNameElements\" />
+    <Folder Include="screenshots\SearchFilter: Test Case 5.10 - FAILED\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.editorconfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="data\UC1LoginModules.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>
