@@ -82,7 +82,7 @@ namespace automation_dph.src.Assertions
                 { SearchFilter.TestScenarios[59], () => { test.Info(SearchFilter.StepsToReplicateFilters[29] + $"<b>Actual Result:</b> <br>{ex.Message}"); return Task.CompletedTask; } },
 
             };
-
+            
             if (searchFilterScenarios.TryGetValue(testScenariosDescription, out var action))
             {
                 action.Invoke();
