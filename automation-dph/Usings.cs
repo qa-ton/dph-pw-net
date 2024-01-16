@@ -11,3 +11,4 @@ global using automation_dph.enums;
 global using automation_dph.appNameElements;
 global using AventStack.ExtentReports;
 global using AventStack.ExtentReports.Model;
+global using System.Text.RegularExpressions;
