@@ -14,6 +14,7 @@ namespace automation_dph.src.Utils
         protected MarkAsReturnedAssertions MarkAsReturnedAssertions { get; private set; } = null!;
         protected PrintWaybillAssertions PrintWaybillAssertions { get; private set; } = null!;
         protected PaginationAssertions PaginationAssertions { get; private set; } = null!;
+        protected DashboardUIAssertions DashboardUIAssertions { get; private set; } = null!;
 
         [TestInitialize]
         public async Task TestPageInit()
@@ -38,6 +39,7 @@ namespace automation_dph.src.Utils
             MarkAsReturnedAssertions = new(Page, PageTest);
             PrintWaybillAssertions = new(Page, PageTest);
             PaginationAssertions = new(Page, PageTest);
+            DashboardUIAssertions = new(Page, PageTest);
 
             // Login
             await LoginPages.LoginToWebApplication(DataConfiguration.qaUsername, DataConfiguration.qaPassword);
