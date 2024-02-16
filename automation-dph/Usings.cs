@@ -10,5 +10,5 @@ global using automation_dph.src.Api;
 global using automation_dph.enums;
 global using automation_dph.appNameElements;
 global using AventStack.ExtentReports;
-global using AventStack.ExtentReports.Model;
+global using Newtonsoft.Json;
 global using System.Text.RegularExpressions;
