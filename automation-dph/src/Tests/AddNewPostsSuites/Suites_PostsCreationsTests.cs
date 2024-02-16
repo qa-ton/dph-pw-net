@@ -1,7 +1,4 @@
 ﻿
-using System.Net;
-using System.Net.Mail;
-
 namespace automation_dph.src.Tests.AddNewPostsSuites
 {
 	[TestClass]
