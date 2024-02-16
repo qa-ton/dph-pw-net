@@ -36,6 +36,7 @@
     <None Remove="enums\" />
     <None Remove="appNameElements\" />
     <None Remove="screenshots\SearchFilter: Test Case 5.10 - FAILED\" />
+    <None Remove="src\Tests\AddNewPostsSuites\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\" />
@@ -52,6 +53,7 @@
     <Folder Include="enums\" />
     <Folder Include="appNameElements\" />
     <Folder Include="screenshots\SearchFilter: Test Case 5.10 - FAILED\" />
+    <Folder Include="src\Tests\AddNewPostsSuites\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.editorconfig" />
