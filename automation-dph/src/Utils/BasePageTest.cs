@@ -15,6 +15,9 @@ namespace automation_dph.src.Utils
         protected PrintWaybillAssertions PrintWaybillAssertions { get; private set; } = null!;
         protected PaginationAssertions PaginationAssertions { get; private set; } = null!;
         protected DashboardUIAssertions DashboardUIAssertions { get; private set; } = null!;
+        protected AddNewPostsPages AddNewPostsPages { get; private set; } = null!;
+        protected ManualPostsCreationAssertions ManualPostsCreationAssertions { get; private set; } = null!;
+        protected PostsCreation PostsCreation { get; private set; } = null!;
 
         [TestInitialize]
         public async Task TestPageInit()
@@ -23,7 +26,7 @@ namespace automation_dph.src.Utils
             var browser = await playwright.Chromium.LaunchAsync(
                 new BrowserTypeLaunchOptions
                 {
-                    Headless = true
+                    Headless = false
                 });
 
             Page = await browser.NewPageAsync();
@@ -40,6 +43,9 @@ namespace automation_dph.src.Utils
             PrintWaybillAssertions = new(Page, PageTest);
             PaginationAssertions = new(Page, PageTest);
             DashboardUIAssertions = new(Page, PageTest);
+            AddNewPostsPages = new(Page, PageTest);
+            ManualPostsCreationAssertions = new(Page, PageTest);
+            PostsCreation = new(Page, PageTest);
 
             // Login
             await LoginPages.LoginToWebApplication(DataConfiguration.qaUsername, DataConfiguration.qaPassword);
