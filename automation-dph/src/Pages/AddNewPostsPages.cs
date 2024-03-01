@@ -64,7 +64,7 @@ namespace automation_dph.src.Pages
             await NumberOfInputTags(tags);
         }
 
-        private async Task InputPricingDetails(string quantity, string codAmount, string declaredValue, string length, string width, string height, string depth, string weight)
+        public async Task InputPricingDetails(string quantity, string codAmount, string declaredValue, string length, string width, string height, string depth, string weight)
         {
             await Page.WaitForLoadStateAsync();
             await Quantity_Textbox.First.FillAsync(quantity);
@@ -259,6 +259,23 @@ namespace automation_dph.src.Pages
             EnvironmentVariableManager.SetValue(ProvincePickupSummary_Label, GetValueOfProvinceInSummaryPage);
         }
 
+        public async Task PickupDetailsAutoFill(string referenceNumber)
+        {
+            DateTime dateTime = DateTime.Now;
+            string randomReferenceNumber = dateTime.ToString("mm:ss:fff");
+            await Page.WaitForTimeoutAsync(5000); // wait for dropdown values to load
+            await ReferenceNumber_Textbox.FillAsync($"{referenceNumber}-{randomReferenceNumber}");
+            await UseLastProfilePickup_Button.ClickAsync();
+            await NextStepPickupDelivery_Button.ClickAsync();
+        }
+
+        public async Task DeliveryDetailsAutoFill()
+        {
+            await UseLastProfileDelivery_Button.ClickAsync();
+            await InputPricingDetails("1","0","0","1","2","3","4","5");
+            await NextStepPickupDelivery_Button.ClickAsync();
+        }
+
         // CHECKBOXES
         private ILocator ChkOnDemandDelivery => Page.Locator(".onDemand-button");
         private ILocator ChkScheduledDelivery => Page.Locator(".scheduled-button");
@@ -275,17 +292,29 @@ namespace automation_dph.src.Pages
         private ILocator BtnNextStepPickupDeliveryDetails => Page.Locator(".btn.btn-icon-right.tw-bg-dark-3.tw-duration-200.tw-ease-in-out");
         private ILocator BtnNextStepSelectCourier => Page.Locator(".wizard__navigation > button:nth-of-type(2)");
         private ILocator BtnUseLastProfilePickup => Page.Locator(".btn.btn-icon-left.tw-bg-blue-4");
+        private ILocator BtnUseLastProfileDelivery => Page.Locator(".btn.btn-icon-left.tw-bg-blue-4");
         private ILocator BtnAutoFillPickupDetails => Page.Locator("[class='btn tw-bg-dark-3']");
         private ILocator BtnSave => Page.Locator(".btn.tw-bg-blue-3.tw-duration-300.tw-ease-in-out.tw-transition-all");
         private ILocator BtnPin => Page.Locator(".address .btn-icon-left");
         private ILocator BtnSavePin => Page.Locator(".btn.btn--blue.btn-sm");
+        private ILocator ProvinceCloseBtn => Page.Locator("[class='column-2']:nth-of-type(3) .form-control-input-select:nth-of-type(1) [class='css-16pqwjk-indicatorContainer creatable-select__indicator creatable-select__clear-indicator'] [class]");
+        private ILocator CityCloseBtn => Page.Locator(".form-control-input-select:nth-of-type(2) [class='css-16pqwjk-indicatorContainer creatable-select__indicator creatable-select__clear-indicator'] [class]");
+        private ILocator BarangayCloseBtn => Page.Locator("[class='column-2']:nth-of-type(4) [class='css-16pqwjk-indicatorContainer creatable-select__indicator creatable-select__clear-indicator'] [class]");
+        private ILocator BtnPreviousStepPickupDetails => Page.Locator(".wizard__navigation [type='button']:nth-of-type(1)");
 
         //HYPERLINKS
+        private ILocator LnkScheduledPost => Page.Locator("#horizontal-list li:nth-of-type(1) span");
+        private ILocator LnkPickupDetails => Page.Locator("#horizontal-list li:nth-of-type(2) span");
+        private ILocator LnkDeliveryDetails => Page.Locator("#horizontal-list li:nth-of-type(3) span");
 
         //LABELS
         private ILocator LblCourierNameSummary => Page.Locator(".courier__name");
         private ILocator LblVehicleTypeSelectCourier => Page.Locator(".css-1hwfws3.select-dropdown__value-container.select-dropdown__value-container--has-value");
         private ILocator LblProvincePickupSummary => Page.Locator(".pickupDetails .location__content .data:nth-of-type(8)");
+        private ILocator LblScheduledPostPage => Page.Locator(".schedule-post .title");
+        private ILocator LblDeliveryDetailsPage => Page.Locator(".delivery-details .title");
+        private ILocator LblSelectCourierPage => Page.Locator(".title.tw-pt-2");
+        private ILocator LblPickupDetailsPage => Page.Locator(".content-body .title");
 
         //TEXTBOXES
         private ILocator TxtReferenceNumber => Page.Locator("input[name='refNo']");
@@ -334,6 +363,12 @@ namespace automation_dph.src.Pages
         // Hover Message label
         private ILocator LblHoverCourierMessage => Page.Locator("//*[@id=\"app\"]/div/div/div[3]/div/div[2]/div[2]/div[1]/div[2]/div/div[5]/div[1]/span");
 
+        //DIVs
+        private ILocator LstOndemandCourierRow => Page.Locator(".row");
+
+        // Notification
+        private ILocator ToastErrorNotification => Page.Locator(".Toastify__toast-container.Toastify__toast-container--top-right");
+
 
         public ILocator OnDemandDelivery_Checkbox { get { return ChkOnDemandDelivery; } }
         public ILocator ScheduledDelivery_Checkbox { get { return ChkScheduledDelivery; } }
@@ -351,6 +386,7 @@ namespace automation_dph.src.Pages
         public ILocator Tags_Dropdown { get { return DdlTags; } }
         public ILocator AutoFillPickupDetails_Button { get { return BtnAutoFillPickupDetails; } }
         public ILocator UseLastProfilePickup_Button { get { return BtnUseLastProfilePickup; } }
+        public ILocator UseLastProfileDelivery_Button { get { return BtnUseLastProfileDelivery; } }
         public ILocator NextStepPickupDelivery_Button { get { return BtnNextStepPickupDeliveryDetails; } }
         public ILocator Quantity_Textbox { get { return TxtQuantity; } }
         public ILocator CodAmount_Textbox { get { return TxtCodAmount; } }
@@ -395,6 +431,19 @@ namespace automation_dph.src.Pages
         public ILocator RequestedByNonpareil_Textbox { get { return TxtRequestedByNonpareil; } }
         public ILocator PickupTimeSlotNinjavan_Dropdown { get { return DdlPickupTimeSlotNinjavan; } }
         public ILocator DeliveryTimeSlotNinjavan_Dropdown { get { return DdlDeliveryTimeSlotNinjavan; } }
+        public ILocator OndemandCourierRow_List { get { return LstOndemandCourierRow; } }
+        public ILocator ErrorNotification_Toastify { get { return ToastErrorNotification; } }
+        public ILocator ScheduledPostPage_Label { get { return LblScheduledPostPage; } }
+        public ILocator ScheduledPost_Link { get { return LnkScheduledPost; } }
+        public ILocator DeliveryDetailsPage_Label { get { return LblDeliveryDetailsPage; } }
+        public ILocator ProvinceClose_Button { get { return ProvinceCloseBtn; } }
+        public ILocator CityClose_Button { get { return CityCloseBtn; } }
+        public ILocator BarangayClose_Button { get { return BarangayCloseBtn; } }
+        public ILocator PreviousStepPickupDetails_Button { get { return BtnPreviousStepPickupDetails; } }
+        public ILocator PickupDetails_Link { get { return LnkPickupDetails; } }
+        public ILocator SelectCourierPage_Label { get { return LblSelectCourierPage; } }
+        public ILocator PickupDetailsPage_Label { get { return LblPickupDetailsPage; } }
+        public ILocator DeliveryDetails_Link { get { return LnkDeliveryDetails; } }
 
 
         // Get value
@@ -402,6 +451,12 @@ namespace automation_dph.src.Pages
         public string GetValueOfVehicleTypeInCourierPage { get { return LblVehicleTypeSelectCourier.InnerTextAsync().GetAwaiter().GetResult(); } }
         public string GetValueOfProvinceInSummaryPage { get { return LblProvincePickupSummary.First.InnerTextAsync().GetAwaiter().GetResult(); } }
         public string GetValueOfHoverMessageInCourierPage { get { return LblHoverCourierMessage.First.InnerTextAsync().GetAwaiter().GetResult(); } }
+        public string GetValueOfCourierListInCourierPage { get { return LstOndemandCourierRow.First.InnerTextAsync().GetAwaiter().GetResult(); } }
+        public string GetValueOfErrorNotification { get { return ToastErrorNotification.First.InnerTextAsync().GetAwaiter().GetResult(); } }
+        public string GetValueOfScheduledPostPageLabel { get { return LblScheduledPostPage.First.InnerTextAsync().GetAwaiter().GetResult(); } }
+        public string GetValueOfDeliveryDetailsPageLabel { get { return LblDeliveryDetailsPage.First.InnerTextAsync().GetAwaiter().GetResult(); } }
+        public string GetValueOfSelectCourierPageLabel { get { return LblSelectCourierPage.First.InnerTextAsync().GetAwaiter().GetResult(); } }
+        public string GetValueOfPickupDetailsPageLabel { get { return LblPickupDetailsPage.First.InnerTextAsync().GetAwaiter().GetResult(); } }
 
     }
 }
