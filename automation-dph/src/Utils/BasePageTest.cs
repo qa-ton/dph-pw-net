@@ -18,6 +18,8 @@ namespace automation_dph.src.Utils
         protected AddNewPostsPages AddNewPostsPages { get; private set; } = null!;
         protected ManualPostsCreationAssertions ManualPostsCreationAssertions { get; private set; } = null!;
         protected PostsCreation PostsCreation { get; private set; } = null!;
+        protected AddNewPostsAssertions AddNewPostsAssertions { get; private set; } = null!;
+        protected EnumsPostFieldDetails EnumsPostFieldDetails { get; private set; } = null!;
 
         [TestInitialize]
         public async Task TestPageInit()
@@ -26,7 +28,7 @@ namespace automation_dph.src.Utils
             var browser = await playwright.Chromium.LaunchAsync(
                 new BrowserTypeLaunchOptions
                 {
-                    Headless = false
+                    Headless = true
                 });
 
             Page = await browser.NewPageAsync();
@@ -46,6 +48,8 @@ namespace automation_dph.src.Utils
             AddNewPostsPages = new(Page, PageTest);
             ManualPostsCreationAssertions = new(Page, PageTest);
             PostsCreation = new(Page, PageTest);
+            AddNewPostsAssertions = new(Page, PageTest);
+            EnumsPostFieldDetails = new(Page, PageTest);
 
             // Login
             await LoginPages.LoginToWebApplication(DataConfiguration.qaUsername, DataConfiguration.qaPassword);
