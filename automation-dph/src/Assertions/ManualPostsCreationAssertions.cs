@@ -119,7 +119,7 @@ namespace automation_dph.src.Assertions
             catch (Exception e)
             {
                 // Log a fail status with the exception message
-                test.Fail("<b>FAILED.</b> The expected notificaiton did not match.");
+                test.Fail("<b>FAILED.</b> The expected notification did not match.");
                 ex = e;
                 StepsToReplicateForReporting(test, testScenariosDescription);
                 await TakeAScreenshot($"{screenShotFolderName}", $"{screenShotFileName} - FAILED");
@@ -144,7 +144,7 @@ namespace automation_dph.src.Assertions
             catch (Exception e)
             {
                 // Log a fail status with the exception message
-                test.Fail("<b>FAILED.</b> The expected notificaiton did not match.");
+                test.Fail("<b>FAILED.</b> The expected notification did not match.");
                 ex = e;
                 StepsToReplicateForReporting(test, testScenariosDescription);
                 await TakeAScreenshot($"{screenShotFolderName}", $"{screenShotFileName} - FAILED");
