@@ -20,6 +20,9 @@ namespace automation_dph.src.Utils
         protected PostsCreation PostsCreation { get; private set; } = null!;
         protected AddNewPostsAssertions AddNewPostsAssertions { get; private set; } = null!;
         protected EnumsPostFieldDetails EnumsPostFieldDetails { get; private set; } = null!;
+        protected EnumsAdditionalDetails EnumsAdditionalDetails { get; private set; } = null!;
+        protected EnumsSummaryPage EnumsSummaryPage { get; private set; } = null!;
+
 
         [TestInitialize]
         public async Task TestPageInit()
@@ -50,6 +53,8 @@ namespace automation_dph.src.Utils
             PostsCreation = new(Page, PageTest);
             AddNewPostsAssertions = new(Page, PageTest);
             EnumsPostFieldDetails = new(Page, PageTest);
+            EnumsAdditionalDetails = new(Page, PageTest);
+            EnumsSummaryPage = new(Page, PageTest);
 
             // Login
             await LoginPages.LoginToWebApplication(DataConfiguration.qaUsername, DataConfiguration.qaPassword);
