@@ -170,6 +170,7 @@ namespace automation_dph.src.Pages
 
         public async Task FillOutMetafields(string courier)
         {
+            await Page.WaitForTimeoutAsync(5000);
             switch (courier)
             {
                 case "Lalamove":
@@ -269,11 +270,26 @@ namespace automation_dph.src.Pages
             await NextStepPickupDelivery_Button.ClickAsync();
         }
 
+        public async Task PickupDetailsAutoFillWithOutClickingNextStep(string referenceNumber)
+        {
+            DateTime dateTime = DateTime.Now;
+            string randomReferenceNumber = dateTime.ToString("mm:ss:fff");
+            await Page.WaitForTimeoutAsync(5000); // wait for dropdown values to load
+            await ReferenceNumber_Textbox.FillAsync($"{referenceNumber}-{randomReferenceNumber}");
+            await UseLastProfilePickup_Button.ClickAsync();
+        }
+
         public async Task DeliveryDetailsAutoFill()
         {
             await UseLastProfileDelivery_Button.ClickAsync();
-            await InputPricingDetails("1","0","0","1","2","3","4","5");
+            await InputPricingDetails("1","100","200","1","2","3","4","5");
             await NextStepPickupDelivery_Button.ClickAsync();
+        }
+
+        public async Task DeliveryDetailsAutoFillWithOutClickingNextStep()
+        {
+            await UseLastProfileDelivery_Button.ClickAsync();
+            await InputPricingDetails("1", "150", "300", "1", "2", "3", "4", "5");
         }
 
         // CHECKBOXES
@@ -306,6 +322,7 @@ namespace automation_dph.src.Pages
         private ILocator LnkScheduledPost => Page.Locator("#horizontal-list li:nth-of-type(1) span");
         private ILocator LnkPickupDetails => Page.Locator("#horizontal-list li:nth-of-type(2) span");
         private ILocator LnkDeliveryDetails => Page.Locator("#horizontal-list li:nth-of-type(3) span");
+        private ILocator LnkAdditionalDetails => Page.Locator("#horizontal-list li:nth-of-type(5) span");
 
         //LABELS
         private ILocator LblCourierNameSummary => Page.Locator(".courier__name");
@@ -315,6 +332,35 @@ namespace automation_dph.src.Pages
         private ILocator LblDeliveryDetailsPage => Page.Locator(".delivery-details .title");
         private ILocator LblSelectCourierPage => Page.Locator(".title.tw-pt-2");
         private ILocator LblPickupDetailsPage => Page.Locator(".content-body .title");
+        private ILocator LblSummaryPage => Page.Locator(".summary__header > .title");
+        private ILocator LblSummaryReferenceNumber => Page.Locator(".refNo__header > .data");
+        private ILocator LblSummaryPickupCustomerName => Page.Locator(".pickupDetails .customer__content .data:nth-of-type(2)");
+        private ILocator LblSummaryPickupMobileNumber => Page.Locator(".pickupDetails .customer__content .data:nth-of-type(4)");
+        private ILocator LblSummaryPickupEmailAddress => Page.Locator(".pickupDetails .customer__content .data:nth-of-type(6)");
+        private ILocator LblSummaryPickupDateAndTime => Page.Locator(".pickupDetails .customer__content .data:nth-of-type(8)");
+        private ILocator LblSummaryPickupAddress => Page.Locator(".pickupDetails .location__content .data:nth-of-type(2)");
+        private ILocator LblSummaryPickupBarangay => Page.Locator(".pickupDetails .location__content .data:nth-of-type(4)");
+        private ILocator LblSummaryPickupCity => Page.Locator(".pickupDetails .location__content .data:nth-of-type(6)");
+        private ILocator LblSummaryPickupProvince => Page.Locator(".pickupDetails .location__content .data:nth-of-type(8)");
+        private ILocator LblSummaryPickupPostal => Page.Locator(".pickupDetails .location__content .data:nth-of-type(10)");
+        private ILocator LblSummaryPickupRemarks => Page.Locator(".pickupDetails .job__content .data");
+        private ILocator LblSummaryDeliveryCustomerName => Page.Locator(".deliveryDetails .customer__content .data:nth-of-type(2)");
+        private ILocator LblSummaryDeliveryMobileNumber => Page.Locator(".deliveryDetails .customer__content .data:nth-of-type(4)");
+        private ILocator LblSummaryDeliveryEmailAddress => Page.Locator(".deliveryDetails .customer__content .data:nth-of-type(6)");
+        private ILocator LblSummaryDeliveryDateAndTime => Page.Locator(".deliveryDetails .customer__content .data:nth-of-type(8)");
+        private ILocator LblSummaryDeliveryAddress => Page.Locator(".deliveryDetails .location__content .data:nth-of-type(2)");
+        private ILocator LblSummaryDeliveryBarangay => Page.Locator(".deliveryDetails .location__content .data:nth-of-type(4)");
+        private ILocator LblSummaryDeliveryCity => Page.Locator(".deliveryDetails .location__content .data:nth-of-type(6)");
+        private ILocator LblSummaryDeliveryProvince => Page.Locator(".deliveryDetails .location__content .data:nth-of-type(8)");
+        private ILocator LblSummaryDeliveryPostal => Page.Locator(".deliveryDetails .location__content .data:nth-of-type(10)");
+        private ILocator LblSummaryDeliveryQuantity => Page.Locator(".package__content .data:nth-of-type(2)");
+        private ILocator LblSummaryDeliveryWeight => Page.Locator(".package__content .data:nth-of-type(6)");
+        private ILocator LblSummaryDeliveryCodAmount => Page.Locator(".pricing__content .data:nth-of-type(2)");
+        private ILocator LblSummaryDeliveryDeclaredValue => Page.Locator(".pricing__content > div:nth-of-type(4)");
+        private ILocator LblSummaryDeliveryItemDescription => Page.Locator(".deliveryDetails .job__content .data:nth-of-type(2)");
+        private ILocator LblSummaryDeliveryRemarks => Page.Locator(".job__content > div:nth-of-type(4)");
+        private ILocator LblSummaryCourierPartnerName => Page.Locator(".courier__name");
+        private ILocator LblSummaryCourierDeliveryType => Page.Locator(".courier__postType");
 
         //TEXTBOXES
         private ILocator TxtReferenceNumber => Page.Locator("input[name='refNo']");
@@ -352,6 +398,7 @@ namespace automation_dph.src.Pages
 
 
         //DROPDOWNS
+        private ILocator DdlPickupDateAndTime => Page.Locator(".form-control");
         private ILocator DdlProvince => Page.Locator("(//div[@class='css-1pcexqc-container react-select-container'])[1]");
         private ILocator DdlCity => Page.Locator("(//div[@class='css-1pcexqc-container react-select-container'])[2]");
         private ILocator DdlBarangay => Page.Locator("(//div[@class='css-1pcexqc-container react-select-container'])[3]");
@@ -444,6 +491,39 @@ namespace automation_dph.src.Pages
         public ILocator SelectCourierPage_Label { get { return LblSelectCourierPage; } }
         public ILocator PickupDetailsPage_Label { get { return LblPickupDetailsPage; } }
         public ILocator DeliveryDetails_Link { get { return LnkDeliveryDetails; } }
+        public ILocator PickupDateAndTime_Dropdown { get { return DdlPickupDateAndTime; } }
+        public ILocator SummaryPage_Label { get { return LblSummaryPage; } }
+        public ILocator AdditionalDetails_Link { get { return LnkAdditionalDetails; } }
+
+        //Summary Labels
+        public ILocator SummaryReferenceNumber_Label { get { return LblSummaryReferenceNumber; } }
+        public ILocator SummaryPickupCustomerName_Label { get { return LblSummaryPickupCustomerName; } }
+        public ILocator SummaryPickupMobileNumber_Label { get { return LblSummaryPickupMobileNumber; } }
+        public ILocator SummaryPickupEmailAddress_Label { get { return LblSummaryPickupEmailAddress; } }
+        public ILocator SummaryPickupDateAndTime_Label { get { return LblSummaryPickupDateAndTime; } }
+        public ILocator SummaryPickupAddress_Label { get { return LblSummaryPickupAddress; } }
+        public ILocator SummaryPickupBarangay_Label { get { return LblSummaryPickupBarangay; } }
+        public ILocator SummaryPickupCity_Label { get { return LblSummaryPickupCity; } }
+        public ILocator SummaryPickupProvince_Label { get { return LblSummaryPickupProvince; } }
+        public ILocator SummaryPickupPostal_Label { get { return LblSummaryPickupPostal; } }
+        public ILocator SummaryPickupRemarks_Label { get { return LblSummaryPickupRemarks; } }
+        public ILocator SummaryDeliveryCustomerName_Label { get { return LblSummaryDeliveryCustomerName; } }
+        public ILocator SummaryDeliveryMobileNumber_Label { get { return LblSummaryDeliveryMobileNumber; } }
+        public ILocator SummaryDeliveryEmailAddress_Label { get { return LblSummaryDeliveryEmailAddress; } }
+        public ILocator SummaryDeliveryDateAndTime_Label { get { return LblSummaryDeliveryDateAndTime; } }
+        public ILocator SummaryDeliveryAddress_Label { get { return LblSummaryDeliveryAddress; } }
+        public ILocator SummaryDeliveryBarangay_Label { get { return LblSummaryDeliveryBarangay; } }
+        public ILocator SummaryDeliveryCity_Label { get { return LblSummaryDeliveryCity; } }
+        public ILocator SummaryDeliveryProvince_Label { get { return LblSummaryDeliveryProvince; } }
+        public ILocator SummaryDeliveryPostal_Label { get { return LblSummaryDeliveryPostal; } }
+        public ILocator SummaryDeliveryQuantity_Label { get { return LblSummaryDeliveryQuantity; } }
+        public ILocator SummaryDeliveryWeight_Label { get { return LblSummaryDeliveryWeight; } }
+        public ILocator SummaryDeliveryCodAmount_Label { get { return LblSummaryDeliveryCodAmount; } }
+        public ILocator SummaryDeliveryDeclaredValue_Label { get { return LblSummaryDeliveryDeclaredValue; } }
+        public ILocator SummaryDeliveryItemDescription_Label { get { return LblSummaryDeliveryItemDescription; } }
+        public ILocator SummaryDeliveryRemarks_Label { get { return LblSummaryDeliveryRemarks; } }
+        public ILocator SummaryCourierPartnerName_Label { get { return LblSummaryCourierPartnerName; } }
+        public ILocator SummaryCourierDeliveryType_Label { get { return LblSummaryCourierDeliveryType; } }
 
 
         // Get value
@@ -457,6 +537,8 @@ namespace automation_dph.src.Pages
         public string GetValueOfDeliveryDetailsPageLabel { get { return LblDeliveryDetailsPage.First.InnerTextAsync().GetAwaiter().GetResult(); } }
         public string GetValueOfSelectCourierPageLabel { get { return LblSelectCourierPage.First.InnerTextAsync().GetAwaiter().GetResult(); } }
         public string GetValueOfPickupDetailsPageLabel { get { return LblPickupDetailsPage.First.InnerTextAsync().GetAwaiter().GetResult(); } }
+        public string GetValueOfSummaryPageLabel { get { return LblSummaryPage.First.InnerTextAsync().GetAwaiter().GetResult(); } }
+        public string GetValueOfReferenceNumber { get { return TxtReferenceNumber.First.InnerTextAsync().GetAwaiter().GetResult(); } }
 
     }
 }
