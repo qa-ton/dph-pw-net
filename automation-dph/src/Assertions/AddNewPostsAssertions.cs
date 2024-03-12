@@ -1,4 +1,6 @@
 ﻿
+using automation_dph.TestScenarios.AddNewPostModule;
+
 namespace automation_dph.src.Assertions
 {
 	public class AddNewPostsAssertions : BasePageDriver
@@ -103,6 +105,51 @@ namespace automation_dph.src.Assertions
                 { AddNewPosts.TestScenariosPickupDetails[75], () => { test.Info(AddNewPosts.StepsToReplicateMaxLengthValue + actualResultLabel); return Task.CompletedTask; } },
                 { AddNewPosts.TestScenariosPickupDetails[76], () => { test.Info(AddNewPosts.StepsToReplicateMaxLengthValue + actualResultLabel); return Task.CompletedTask; } },
                 { AddNewPosts.TestScenariosPickupDetails[77], () => { test.Info(AddNewPosts.StepsToReplicateMaxLengthValue + actualResultLabel); return Task.CompletedTask; } },
+                // Select Courier Page
+                { SelectCourierPage.TestScenariosSelectCourier[0], () => { test.Info(SelectCourierPage.StepsToReplicatePickupDateSelectCourier + actualResultLabel); return Task.CompletedTask; } },
+                { SelectCourierPage.TestScenariosSelectCourier[1], () => { test.Info(SelectCourierPage.StepsToReplicateDeliveryTimeSelectCourier + actualResultLabel); return Task.CompletedTask; } },
+                // Additional Details Page
+                { AdditionalDetailsPage.TestScenariosAdditionalDetails[0], () => { test.Info(AdditionalDetailsPage.StepsToReplicateAdditionalDetailsPage + actualResultLabel); return Task.CompletedTask; } },
+                // Summary Page
+                { SummaryPage.TestScenariosSummaryPage[0], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                { SummaryPage.TestScenariosSummaryPage[1], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                { SummaryPage.TestScenariosSummaryPage[2], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                { SummaryPage.TestScenariosSummaryPage[3], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                { SummaryPage.TestScenariosSummaryPage[4], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                { SummaryPage.TestScenariosSummaryPage[5], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                { SummaryPage.TestScenariosSummaryPage[6], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                { SummaryPage.TestScenariosSummaryPage[7], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                { SummaryPage.TestScenariosSummaryPage[8], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                { SummaryPage.TestScenariosSummaryPage[9], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                { SummaryPage.TestScenariosSummaryPage[10], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                { SummaryPage.TestScenariosSummaryPage[11], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                { SummaryPage.TestScenariosSummaryPage[12], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                { SummaryPage.TestScenariosSummaryPage[13], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                { SummaryPage.TestScenariosSummaryPage[14], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                { SummaryPage.TestScenariosSummaryPage[15], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                { SummaryPage.TestScenariosSummaryPage[16], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                { SummaryPage.TestScenariosSummaryPage[17], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                { SummaryPage.TestScenariosSummaryPage[18], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                { SummaryPage.TestScenariosSummaryPage[19], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                { SummaryPage.TestScenariosSummaryPage[20], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                { SummaryPage.TestScenariosSummaryPage[21], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                { SummaryPage.TestScenariosSummaryPage[22], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                { SummaryPage.TestScenariosSummaryPage[23], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                { SummaryPage.TestScenariosSummaryPage[24], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                { SummaryPage.TestScenariosSummaryPage[25], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                { SummaryPage.TestScenariosSummaryPage[26], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                { SummaryPage.TestScenariosSummaryPage[27], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                { SummaryPage.TestScenariosSummaryPage[28], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                { SummaryPage.TestScenariosSummaryPage[29], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                { SummaryPage.TestScenariosSummaryPage[30], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                { SummaryPage.TestScenariosSummaryPage[31], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                { SummaryPage.TestScenariosSummaryPage[32], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                { SummaryPage.TestScenariosSummaryPage[33], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                { SummaryPage.TestScenariosSummaryPage[34], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                { SummaryPage.TestScenariosSummaryPage[35], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                //{ SummaryPage.TestScenariosSummaryPage[36], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                //{ SummaryPage.TestScenariosSummaryPage[37], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                //{ SummaryPage.TestScenariosSummaryPage[38], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
             };
 
             if (addNewPostScenarios.TryGetValue(testScenariosDescription, out var action))
@@ -364,7 +411,132 @@ namespace automation_dph.src.Assertions
             Extent.Flush();
         }
 
+        public async Task ShouldDisplayPickupDate(int cardPosition, string pickupDate, string testScenariosDescription, string screenShotFolderName, string screenShotFileName)
+        {
+            // Create a test instance in ExtentReports
+            ExtentReports Extent = GetInstance();
+            test = Extent.CreateTest(testScenariosDescription);
 
+            try
+            {
+                await Page.WaitForTimeoutAsync(2000); // wait for notificaiton to appear
+                ILocator selectCourier = Page.Locator($".row > div:nth-of-type({cardPosition})");
+                string? getValue = selectCourier.InnerTextAsync().GetAwaiter().GetResult();
+                await PageTest.Expect(selectCourier.First).ToContainTextAsync(pickupDate);
+
+                // Log a pass status with a discription
+                test.Pass($"<b>PASSED.</b> Actual Result: Pickup date {getValue} display. <br>");
+            }
+            catch (AssertFailedException e)
+            {
+                // Log a fail status with the exception message
+                test.Fail("<b>FAILED.</b> The expected pickup date did not match.");
+                ex = e;
+                StepsToReplicateForReporting(test, testScenariosDescription);
+                await TakeAScreenshot($"{screenShotFolderName}", $"{screenShotFileName} - FAILED");
+            }
+            Extent.Flush();
+        }
+
+        public async Task ShouldDisplayAdditionalPage(string testScenariosDescription, string screenShotFolderName, string screenShotFileName)
+        {
+            // Create a test instance in ExtentReports
+            ExtentReports Extent = GetInstance();
+            test = Extent.CreateTest(testScenariosDescription);
+
+            try
+            {
+                await Page.WaitForTimeoutAsync(2000); // wait for notificaiton to appear
+                //await PageTest.Expect(AddNewPostsPages.AdditionalDetailsPage_Label).ToContainTextAsync(AddNewPostsPages.GetValueOfSummaryPageLabel);
+
+                // Log a pass status with a discription
+                test.Pass($"<b>PASSED.</b> Actual Result: Display {AddNewPostsPages.GetValueOfSummaryPageLabel} page. <br>");
+            }
+            catch (Exception e)
+            {
+                // Log a fail status with the exception message
+                test.Fail("<b>FAILED.</b> The expected page did not match.");
+                ex = e;
+                StepsToReplicateForReporting(test, testScenariosDescription);
+                await TakeAScreenshot($"{screenShotFolderName}", $"{screenShotFileName} - FAILED");
+            }
+            Extent.Flush();
+        }
+
+        public async Task ShouldDisplaySummaryPage(string testScenariosDescription, string screenShotFolderName, string screenShotFileName)
+        {
+            // Create a test instance in ExtentReports
+            ExtentReports Extent = GetInstance();
+            test = Extent.CreateTest(testScenariosDescription);
+
+            try
+            {
+                await Page.WaitForTimeoutAsync(2000); // wait for notificaiton to appear
+                await PageTest.Expect(AddNewPostsPages.SummaryPage_Label).ToContainTextAsync(AddNewPostsPages.GetValueOfSummaryPageLabel);
+
+                // Log a pass status with a discription
+                test.Pass($"<b>PASSED.</b> Actual Result: Display {AddNewPostsPages.GetValueOfSummaryPageLabel} page. <br>");
+            }
+            catch (Exception e)
+            {
+                // Log a fail status with the exception message
+                test.Fail("<b>FAILED.</b> The expected page did not match.");
+                ex = e;
+                StepsToReplicateForReporting(test, testScenariosDescription);
+                await TakeAScreenshot($"{screenShotFolderName}", $"{screenShotFileName} - FAILED");
+            }
+            Extent.Flush();
+        }
+
+        public async Task ShouldDisplaySelectedCourier(string testScenariosDescription, string screenShotFolderName, string screenShotFileName)
+        {
+            // Create a test instance in ExtentReports
+            ExtentReports Extent = GetInstance();
+            test = Extent.CreateTest(testScenariosDescription);
+
+            try
+            {
+                await Page.WaitForTimeoutAsync(2000); // wait for notificaiton to appear
+                await PageTest.Expect(AddNewPostsPages.SelectCourierPage_Label).ToContainTextAsync(AddNewPostsPages.GetValueOfSelectCourierPageLabel);
+
+                // Log a pass status with a discription
+                test.Pass($"<b>PASSED.</b> Actual Result: Display {AddNewPostsPages.GetValueOfSelectCourierPageLabel} page. <br>");
+            }
+            catch (Exception e)
+            {
+                // Log a fail status with the exception message
+                test.Fail("<b>FAILED.</b> The expected page did not match.");
+                ex = e;
+                StepsToReplicateForReporting(test, testScenariosDescription);
+                await TakeAScreenshot($"{screenShotFolderName}", $"{screenShotFileName} - FAILED");
+            }
+            Extent.Flush();
+        }
+
+        public async Task ShouldDisplayBasedOnInputtedValue(ILocator locatorPath, string getValue, string testScenariosDescription, string screenShotFolderName, string screenShotFileName)
+        {
+            // Create a test instance in ExtentReports
+            ExtentReports Extent = GetInstance();
+            test = Extent.CreateTest(testScenariosDescription);
+
+            try
+            {
+                await Page.WaitForTimeoutAsync(2000); // wait for notificaiton to appear
+                await PageTest.Expect(locatorPath).ToContainTextAsync(getValue);
+
+                // Log a pass status with a discription
+                test.Pass($"<b>PASSED.</b> Actual Result: Value display {getValue}. <br>");
+            }
+            catch (Exception e)
+            {
+                // Log a fail status with the exception message
+                test.Fail("<b>FAILED.</b> The expected page did not match.");
+                ex = e;
+                StepsToReplicateForReporting(test, testScenariosDescription);
+                await TakeAScreenshot($"{screenShotFolderName}", $"{screenShotFileName} - FAILED");
+            }
+            Extent.Flush();
+        }
     }
 }
 
