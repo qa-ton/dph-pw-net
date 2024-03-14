@@ -2,7 +2,7 @@
 namespace automation_dph.src.Tests.AddNewPostsSuites
 {
     [TestClass]
-    [TestCategory("PICUP DETAILS PAGE TEST SUITES")]
+    [TestCategory("PICkUP DETAILS PAGE TEST SUITES")]
     public class Suites_PickupDetailsTests : BasePageTest
     {
         [TestMethod]
