@@ -57,7 +57,7 @@ namespace automation_dph.src.Pages
             await NextStepPickupDelivery_Button.First.ClickAsync();
         }
 
-        private async Task InputPostDetails(string remarks, int tags)
+        public async Task InputPostDetails(string remarks, int tags)
         {
             await Page.WaitForLoadStateAsync();
             await Remarks_Textbox.First.FillAsync(remarks);
@@ -77,7 +77,7 @@ namespace automation_dph.src.Pages
             await Weight_Textbox.First.FillAsync(weight);
         }
 
-        private async Task InputLocationDetails(string fullAddress, string province, string city, string barangay, string postalCode)
+        public async Task InputLocationDetails(string fullAddress, string province, string city, string barangay, string postalCode)
         {
             await Page.WaitForLoadStateAsync();
             await Address_Textbox.First.FillAsync(fullAddress);
@@ -90,7 +90,7 @@ namespace automation_dph.src.Pages
             await PostalCode_Textbox.First.FillAsync(postalCode);
         }
 
-        private async Task InputCustomerDetails(string customerName, string mobileNumber, string emailAddress)
+        public async Task InputCustomerDetails(string customerName, string mobileNumber, string emailAddress)
         {
             await Page.WaitForLoadStateAsync();
             await SenderName_Textbox.First.FillAsync(customerName);
@@ -317,12 +317,15 @@ namespace automation_dph.src.Pages
         private ILocator CityCloseBtn => Page.Locator(".form-control-input-select:nth-of-type(2) [class='css-16pqwjk-indicatorContainer creatable-select__indicator creatable-select__clear-indicator'] [class]");
         private ILocator BarangayCloseBtn => Page.Locator("[class='column-2']:nth-of-type(4) [class='css-16pqwjk-indicatorContainer creatable-select__indicator creatable-select__clear-indicator'] [class]");
         private ILocator BtnPreviousStepPickupDetails => Page.Locator(".wizard__navigation [type='button']:nth-of-type(1)");
+        private ILocator BtnRemovePin => Page.Locator(".modal__footer .btn-sm:nth-of-type(1)");
+        private ILocator BtnPinLocationClose => Page.Locator("div[role='document'] > .font-10.tooltip-close");
 
         //HYPERLINKS
         private ILocator LnkScheduledPost => Page.Locator("#horizontal-list li:nth-of-type(1) span");
         private ILocator LnkPickupDetails => Page.Locator("#horizontal-list li:nth-of-type(2) span");
         private ILocator LnkDeliveryDetails => Page.Locator("#horizontal-list li:nth-of-type(3) span");
         private ILocator LnkAdditionalDetails => Page.Locator("#horizontal-list li:nth-of-type(5) span");
+        private ILocator LnkAddNewProfile => Page.Locator(".action-buttons > a");
 
         //LABELS
         private ILocator LblCourierNameSummary => Page.Locator(".courier__name");
@@ -361,6 +364,7 @@ namespace automation_dph.src.Pages
         private ILocator LblSummaryDeliveryRemarks => Page.Locator(".job__content > div:nth-of-type(4)");
         private ILocator LblSummaryCourierPartnerName => Page.Locator(".courier__name");
         private ILocator LblSummaryCourierDeliveryType => Page.Locator(".courier__postType");
+        private ILocator LblLocateAddressPinLocation=> Page.Locator("div[role='document'] > .modal-title");
 
         //TEXTBOXES
         private ILocator TxtReferenceNumber => Page.Locator("input[name='refNo']");
@@ -395,6 +399,7 @@ namespace automation_dph.src.Pages
         private ILocator TxtModeOfShipmentNonpareil=> Page.Locator("input[name='modeOfShipment']");
         private ILocator TxtCostCenterNonpareil => Page.Locator("input[name='costCenter']");
         private ILocator TxtRequestedByNonpareil => Page.Locator("input[name='requestedBy']");
+        private ILocator TxtCompleteAddress => Page.Locator("input[role='combobox']");
 
 
         //DROPDOWNS
@@ -415,6 +420,11 @@ namespace automation_dph.src.Pages
 
         // Notification
         private ILocator ToastErrorNotification => Page.Locator(".Toastify__toast-container.Toastify__toast-container--top-right");
+        private ILocator ToastSuccessNotification => Page.Locator(".Toastify__toast-container.Toastify__toast-container--top-right > .Toastify__toast.Toastify__toast--success");
+        private ILocator ToastInformationNotification => Page.Locator(".Toastify__toast-container.Toastify__toast-container--top-right > .Toastify__toast.Toastify__toast--info");
+
+        // Auto suggest container
+        private ILocator LstAutoSuggestPinLocations => Page.Locator("//div[@class='autocomplete__suggestion-container']");
 
 
         public ILocator OnDemandDelivery_Checkbox { get { return ChkOnDemandDelivery; } }
@@ -494,6 +504,14 @@ namespace automation_dph.src.Pages
         public ILocator PickupDateAndTime_Dropdown { get { return DdlPickupDateAndTime; } }
         public ILocator SummaryPage_Label { get { return LblSummaryPage; } }
         public ILocator AdditionalDetails_Link { get { return LnkAdditionalDetails; } }
+        public ILocator AddNewProfile_Link { get { return LnkAddNewProfile; } }
+        public ILocator CompleteAddress_Textbox { get { return TxtCompleteAddress; } }
+        public ILocator SuccessNotification_Toastify { get { return ToastSuccessNotification; } }
+        public ILocator RemovePin_Button { get { return BtnRemovePin; } }
+        public ILocator AutoSuggestPinLocations_List { get { return LstAutoSuggestPinLocations; } }
+        public ILocator PinLocationClose_Button { get { return BtnPinLocationClose; } }
+        public ILocator LocateAddressPinLocation_Label { get { return LblLocateAddressPinLocation; } }
+        public ILocator InformationNotification_Toastify { get { return ToastInformationNotification; } }
 
         //Summary Labels
         public ILocator SummaryReferenceNumber_Label { get { return LblSummaryReferenceNumber; } }
