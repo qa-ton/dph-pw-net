@@ -149,7 +149,39 @@ namespace automation_dph.src.Assertions
                 { SummaryPage.TestScenariosSummaryPage[35], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
                 //{ SummaryPage.TestScenariosSummaryPage[36], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
                 //{ SummaryPage.TestScenariosSummaryPage[37], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
-                //{ SummaryPage.TestScenariosSummaryPage[38], () => { test.Info(SummaryPage.StepsToReplicateSummaryPage + actualResultLabel); return Task.CompletedTask; } },
+                // Pinned Locations
+                { PinnedLocations.TestScenariosPinnedLocations[0], () => { test.Info(PinnedLocations.SavePinLocation + actualResultLabel); return Task.CompletedTask; } },
+                { PinnedLocations.TestScenariosPinnedLocations[1], () => { test.Info(PinnedLocations.RemovePinLocation + actualResultLabel); return Task.CompletedTask; } },
+                { PinnedLocations.TestScenariosPinnedLocations[2], () => { test.Info(PinnedLocations.EditPinLocation + actualResultLabel); return Task.CompletedTask; } },
+                { PinnedLocations.TestScenariosPinnedLocations[3], () => { test.Info(PinnedLocations.AutoSuggestLocations + actualResultLabel); return Task.CompletedTask; } },
+                { PinnedLocations.TestScenariosPinnedLocations[4], () => { test.Info(PinnedLocations.InvalidValueLocation + actualResultLabel); return Task.CompletedTask; } },
+                { PinnedLocations.TestScenariosPinnedLocations[5], () => { test.Info(PinnedLocations.BlankValueLocation + actualResultLabel); return Task.CompletedTask; } },
+                { PinnedLocations.TestScenariosPinnedLocations[6], () => { test.Info(PinnedLocations.CloseModal + actualResultLabel); return Task.CompletedTask; } },
+                { PinnedLocations.TestScenariosPinnedLocations[7], () => { test.Info(PinnedLocations.ClearPinLocation + actualResultLabel); return Task.CompletedTask; } },
+                { PinnedLocations.TestScenariosPinnedLocations[8], () => { test.Info(PinnedLocations.SavePinLocation + actualResultLabel); return Task.CompletedTask; } },
+                { PinnedLocations.TestScenariosPinnedLocations[9], () => { test.Info(PinnedLocations.RemovePinLocation + actualResultLabel); return Task.CompletedTask; } },
+                { PinnedLocations.TestScenariosPinnedLocations[10], () => { test.Info(PinnedLocations.EditPinLocation + actualResultLabel); return Task.CompletedTask; } },
+                { PinnedLocations.TestScenariosPinnedLocations[11], () => { test.Info(PinnedLocations.AutoSuggestLocations + actualResultLabel); return Task.CompletedTask; } },
+                { PinnedLocations.TestScenariosPinnedLocations[12], () => { test.Info(PinnedLocations.InvalidValueLocation + actualResultLabel); return Task.CompletedTask; } },
+                { PinnedLocations.TestScenariosPinnedLocations[13], () => { test.Info(PinnedLocations.BlankValueLocation + actualResultLabel); return Task.CompletedTask; } },
+                { PinnedLocations.TestScenariosPinnedLocations[14], () => { test.Info(PinnedLocations.CloseModal + actualResultLabel); return Task.CompletedTask; } },
+                { PinnedLocations.TestScenariosPinnedLocations[15], () => { test.Info(PinnedLocations.ClearPinLocation + actualResultLabel); return Task.CompletedTask; } },
+                { PinnedLocations.TestScenariosPinnedLocations[16], () => { test.Info(PinnedLocations.SavePinLocation + actualResultLabel); return Task.CompletedTask; } },
+                { PinnedLocations.TestScenariosPinnedLocations[17], () => { test.Info(PinnedLocations.RemovePinLocation + actualResultLabel); return Task.CompletedTask; } },
+                { PinnedLocations.TestScenariosPinnedLocations[18], () => { test.Info(PinnedLocations.EditPinLocation + actualResultLabel); return Task.CompletedTask; } },
+                { PinnedLocations.TestScenariosPinnedLocations[19], () => { test.Info(PinnedLocations.AutoSuggestLocations + actualResultLabel); return Task.CompletedTask; } },
+                { PinnedLocations.TestScenariosPinnedLocations[20], () => { test.Info(PinnedLocations.InvalidValueLocation + actualResultLabel); return Task.CompletedTask; } },
+                { PinnedLocations.TestScenariosPinnedLocations[21], () => { test.Info(PinnedLocations.BlankValueLocation + actualResultLabel); return Task.CompletedTask; } },
+                { PinnedLocations.TestScenariosPinnedLocations[22], () => { test.Info(PinnedLocations.CloseModal + actualResultLabel); return Task.CompletedTask; } },
+                { PinnedLocations.TestScenariosPinnedLocations[23], () => { test.Info(PinnedLocations.ClearPinLocation + actualResultLabel); return Task.CompletedTask; } },
+                { PinnedLocations.TestScenariosPinnedLocations[24], () => { test.Info(PinnedLocations.SavePinLocation + actualResultLabel); return Task.CompletedTask; } },
+                { PinnedLocations.TestScenariosPinnedLocations[25], () => { test.Info(PinnedLocations.RemovePinLocation + actualResultLabel); return Task.CompletedTask; } },
+                { PinnedLocations.TestScenariosPinnedLocations[26], () => { test.Info(PinnedLocations.EditPinLocation + actualResultLabel); return Task.CompletedTask; } },
+                { PinnedLocations.TestScenariosPinnedLocations[27], () => { test.Info(PinnedLocations.AutoSuggestLocations + actualResultLabel); return Task.CompletedTask; } },
+                { PinnedLocations.TestScenariosPinnedLocations[28], () => { test.Info(PinnedLocations.InvalidValueLocation + actualResultLabel); return Task.CompletedTask; } },
+                { PinnedLocations.TestScenariosPinnedLocations[29], () => { test.Info(PinnedLocations.BlankValueLocation + actualResultLabel); return Task.CompletedTask; } },
+                { PinnedLocations.TestScenariosPinnedLocations[30], () => { test.Info(PinnedLocations.CloseModal + actualResultLabel); return Task.CompletedTask; } },
+                { PinnedLocations.TestScenariosPinnedLocations[31], () => { test.Info(PinnedLocations.ClearPinLocation + actualResultLabel); return Task.CompletedTask; } },
             };
 
             if (addNewPostScenarios.TryGetValue(testScenariosDescription, out var action))
@@ -537,6 +569,177 @@ namespace automation_dph.src.Assertions
             }
             Extent.Flush();
         }
+
+        public async Task ShouldDisplaySuccessNotification(string testScenariosDescription, string screenShotFolderName, string screenShotFileName)
+        {
+            // Create a test instance in ExtentReports
+            ExtentReports Extent = GetInstance();
+            test = Extent.CreateTest(testScenariosDescription);
+
+            try
+            {
+                await Page.WaitForTimeoutAsync(2000); // wait for notificaiton to appear
+                await PageTest.Expect(AddNewPostsPages.SuccessNotification_Toastify).ToBeVisibleAsync();
+                // Log a pass status with a discription
+                test.Pass($"<b>PASSED.</b> Actual Result: {AddNewPostsPages.SuccessNotification_Toastify.InnerTextAsync().GetAwaiter().GetResult()}. <br>");
+            }
+            catch (Exception e)
+            {
+                // Log a fail status with the exception message
+                test.Fail("<b>FAILED.</b> The expected notification did not match.");
+                ex = e;
+                StepsToReplicateForReporting(test, testScenariosDescription);
+                await TakeAScreenshot($"{screenShotFolderName}", $"{screenShotFileName} - FAILED");
+            }
+            Extent.Flush();
+        }
+
+        public async Task ShouldNotDisplayPinnedLabel(string testScenariosDescription, string screenShotFolderName, string screenShotFileName)
+        {
+            // Create a test instance in ExtentReports
+            ExtentReports Extent = GetInstance();
+            test = Extent.CreateTest(testScenariosDescription);
+
+            try
+            {
+                await PageTest.Expect(AddNewPostsPages.Pin_Button).ToHaveTextAsync("Pin");
+                // Log a pass status with a discription
+                test.Pass($"<b>PASSED.</b> Actual Result: {AddNewPostsPages.SuccessNotification_Toastify.Nth(1).InnerTextAsync().GetAwaiter().GetResult()}. <br>");
+            }
+            catch (Exception e)
+            {
+                // Log a fail status with the exception message
+                test.Fail("<b>FAILED.</b> The expected display label did not match.");
+                ex = e;
+                StepsToReplicateForReporting(test, testScenariosDescription);
+                await TakeAScreenshot($"{screenShotFolderName}", $"{screenShotFileName} - FAILED");
+            }
+            Extent.Flush();
+        }
+
+        public async Task ShouldDisplayUpdatedValue(string updatedValue, string testScenariosDescription, string screenShotFolderName, string screenShotFileName)
+        {
+            // Create a test instance in ExtentReports
+            ExtentReports Extent = GetInstance();
+            test = Extent.CreateTest(testScenariosDescription);
+            try
+            {
+                await PageTest.Expect(AddNewPostsPages.Address_Textbox).ToHaveTextAsync(updatedValue);
+                // Log a pass status with a discription
+                test.Pass($"<b>PASSED.</b> Actual Result: {AddNewPostsPages.Address_Textbox.InnerTextAsync().GetAwaiter().GetResult()}. <br>");
+            }
+            catch (Exception e)
+            {
+                // Log a fail status with the exception message
+                test.Fail("<b>FAILED.</b> The expected updated value did not match.");
+                ex = e;
+                StepsToReplicateForReporting(test, testScenariosDescription);
+                await TakeAScreenshot($"{screenShotFolderName}", $"{screenShotFileName} - FAILED");
+            }
+            Extent.Flush();
+        }
+
+        public async Task ShouldDisplayAutoSuggestLocation(string testScenariosDescription, string screenShotFolderName, string screenShotFileName)
+        {
+            // Create a test instance in ExtentReports
+            ExtentReports Extent = GetInstance();
+            test = Extent.CreateTest(testScenariosDescription);
+            try
+            {
+                await PageTest.Expect(AddNewPostsPages.AutoSuggestPinLocations_List).ToBeVisibleAsync();
+                // Log a pass status with a discription
+                test.Pass($"<b>PASSED.</b> Actual Result: {AddNewPostsPages.AutoSuggestPinLocations_List.InnerTextAsync().GetAwaiter().GetResult()}. <br>");
+            }
+            catch (Exception e)
+            {
+                // Log a fail status with the exception message
+                test.Fail("<b>FAILED.</b> The expected display of auto suggest did not match.");
+                ex = e;
+                StepsToReplicateForReporting(test, testScenariosDescription);
+                await TakeAScreenshot($"{screenShotFolderName}", $"{screenShotFileName} - FAILED");
+            }
+            Extent.Flush();
+        }
+
+        public async Task ShouldDisplayErrorLocations(string testScenariosDescription, string screenShotFolderName, string screenShotFileName)
+        {
+            {
+                // Create a test instance in ExtentReports
+                ExtentReports Extent = GetInstance();
+                test = Extent.CreateTest(testScenariosDescription);
+
+                try
+                {
+                    await PageTest.Expect(AddNewPostsPages.ErrorNotification_Toastify.First).ToHaveTextAsync("Address not found. Please pin your location manually.✖");
+                    // Log a pass status with a discription
+                    test.Pass($"<b>PASSED.</b> Actual Result: {AddNewPostsPages.GetValueOfErrorNotification}");
+
+                }
+                catch (Exception e)
+                {
+                    // Log a fail status with the exception message
+                    test.Fail("<b>FAILED.</b> The expected list did not match.");
+                    ex = e;
+                    StepsToReplicateForReporting(test, testScenariosDescription);
+                    await TakeAScreenshot($"{screenShotFolderName}", $"{screenShotFileName} - FAILED");
+                }
+                Extent.Flush();
+            }
+        }
+
+        public async Task ShouldCloseModalWindow(string testScenariosDescription, string screenShotFolderName, string screenShotFileName)
+        {
+            {
+                // Create a test instance in ExtentReports
+                ExtentReports Extent = GetInstance();
+                test = Extent.CreateTest(testScenariosDescription);
+
+                try
+                {
+                    await PageTest.Expect(AddNewPostsPages.LocateAddressPinLocation_Label).Not.ToBeVisibleAsync();
+                    // Log a pass status with a discription
+                    test.Pass($"<b>PASSED.</b> Actual Result: Modal window closed.");
+
+                }
+                catch (Exception e)
+                {
+                    // Log a fail status with the exception message
+                    test.Fail("<b>FAILED.</b> The expected visibility did not match.");
+                    ex = e;
+                    StepsToReplicateForReporting(test, testScenariosDescription);
+                    await TakeAScreenshot($"{screenShotFolderName}", $"{screenShotFileName} - FAILED");
+                }
+                Extent.Flush();
+            }
+        }
+
+        public async Task ShouldDisplayInformationNotification(string testScenariosDescription, string screenShotFolderName, string screenShotFileName)
+        {
+            {
+                // Create a test instance in ExtentReports
+                ExtentReports Extent = GetInstance();
+                test = Extent.CreateTest(testScenariosDescription);
+
+                try
+                {
+                    await PageTest.Expect(AddNewPostsPages.InformationNotification_Toastify.Nth(2)).ToHaveTextAsync("Pinned Location has been cleared✖");
+                    // Log a pass status with a discription
+                    test.Pass($"<b>PASSED.</b> Actual Result: {AddNewPostsPages.InformationNotification_Toastify.InnerTextAsync().GetAwaiter().GetResult()}");
+
+                }
+                catch (Exception e)
+                {
+                    // Log a fail status with the exception message
+                    test.Fail("<b>FAILED.</b> The expected notification did not match.");
+                    ex = e;
+                    StepsToReplicateForReporting(test, testScenariosDescription);
+                    await TakeAScreenshot($"{screenShotFolderName}", $"{screenShotFileName} - FAILED");
+                }
+                Extent.Flush();
+            }
+        }
+
+
     }
 }
 
