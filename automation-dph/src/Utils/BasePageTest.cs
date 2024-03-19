@@ -23,6 +23,7 @@ namespace automation_dph.src.Utils
         protected EnumsAdditionalDetails EnumsAdditionalDetails { get; private set; } = null!;
         protected EnumsSummaryPage EnumsSummaryPage { get; private set; } = null!;
         protected EnumsPinLocations EnumsPinLocations { get; private set; } = null!;
+        protected EnumsTags EnumsTags { get; private set; } = null!;
 
 
         [TestInitialize]
@@ -57,6 +58,7 @@ namespace automation_dph.src.Utils
             EnumsAdditionalDetails = new(Page, PageTest);
             EnumsSummaryPage = new(Page, PageTest);
             EnumsPinLocations = new(Page, PageTest);
+            EnumsTags = new(Page, PageTest);
 
             // Login
             await LoginPages.LoginToWebApplication(DataConfiguration.qaUsername, DataConfiguration.qaPassword);
