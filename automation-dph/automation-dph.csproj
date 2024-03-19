@@ -37,6 +37,7 @@
     <None Remove="appNameElements\" />
     <None Remove="screenshots\SearchFilter: Test Case 5.10 - FAILED\" />
     <None Remove="src\Tests\AddNewPostsSuites\" />
+    <None Remove="TestScenarios\AddNewPostModule\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\" />
@@ -54,6 +55,7 @@
     <Folder Include="appNameElements\" />
     <Folder Include="screenshots\SearchFilter: Test Case 5.10 - FAILED\" />
     <Folder Include="src\Tests\AddNewPostsSuites\" />
+    <Folder Include="TestScenarios\AddNewPostModule\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.editorconfig" />
