@@ -319,6 +319,7 @@ namespace automation_dph.src.Pages
         private ILocator BtnPreviousStepPickupDetails => Page.Locator(".wizard__navigation [type='button']:nth-of-type(1)");
         private ILocator BtnRemovePin => Page.Locator(".modal__footer .btn-sm:nth-of-type(1)");
         private ILocator BtnPinLocationClose => Page.Locator("div[role='document'] > .font-10.tooltip-close");
+        private ILocator BtnPickupTagsClose => Page.Locator(".css-1thkkgx-indicatorContainer > .css-19bqh2r");
 
         //HYPERLINKS
         private ILocator LnkScheduledPost => Page.Locator("#horizontal-list li:nth-of-type(1) span");
@@ -365,6 +366,7 @@ namespace automation_dph.src.Pages
         private ILocator LblSummaryCourierPartnerName => Page.Locator(".courier__name");
         private ILocator LblSummaryCourierDeliveryType => Page.Locator(".courier__postType");
         private ILocator LblLocateAddressPinLocation=> Page.Locator("div[role='document'] > .modal-title");
+        private ILocator LblSummaryPickupTags => Page.Locator(".tags__header div:nth-of-type(1) div");
 
         //TEXTBOXES
         private ILocator TxtReferenceNumber => Page.Locator("input[name='refNo']");
@@ -407,7 +409,7 @@ namespace automation_dph.src.Pages
         private ILocator DdlProvince => Page.Locator("(//div[@class='css-1pcexqc-container react-select-container'])[1]");
         private ILocator DdlCity => Page.Locator("(//div[@class='css-1pcexqc-container react-select-container'])[2]");
         private ILocator DdlBarangay => Page.Locator("(//div[@class='css-1pcexqc-container react-select-container'])[3]");
-        private ILocator DdlTags => Page.Locator(".creatable-tags__control.css-bg1rzq-control");
+        private ILocator DdlTags => Page.Locator(".creatable-tags__dropdown-indicator.creatable-tags__indicator.css-16pqwjk-indicatorContainer");
         private ILocator DdlVehicleType => Page.Locator(".css-1hwfws3.select-dropdown__value-container.select-dropdown__value-container--has-value");
         private ILocator DdlPickupTimeSlotNinjavan => Page.Locator("select[name='pickupTimeSlot']");
         private ILocator DdlDeliveryTimeSlotNinjavan => Page.Locator("select[name='deliveryTimeSlot']");
@@ -512,6 +514,7 @@ namespace automation_dph.src.Pages
         public ILocator PinLocationClose_Button { get { return BtnPinLocationClose; } }
         public ILocator LocateAddressPinLocation_Label { get { return LblLocateAddressPinLocation; } }
         public ILocator InformationNotification_Toastify { get { return ToastInformationNotification; } }
+        public ILocator PickupTagsClose_Button { get { return BtnPickupTagsClose; } }
 
         //Summary Labels
         public ILocator SummaryReferenceNumber_Label { get { return LblSummaryReferenceNumber; } }
@@ -542,6 +545,7 @@ namespace automation_dph.src.Pages
         public ILocator SummaryDeliveryRemarks_Label { get { return LblSummaryDeliveryRemarks; } }
         public ILocator SummaryCourierPartnerName_Label { get { return LblSummaryCourierPartnerName; } }
         public ILocator SummaryCourierDeliveryType_Label { get { return LblSummaryCourierDeliveryType; } }
+        public ILocator SummaryPickupTags_Label { get { return LblSummaryPickupTags; } }
 
 
         // Get value
