@@ -1,5 +1,6 @@
 ﻿
 using automation_dph.TestScenarios.AddNewPostModule;
+using Newtonsoft.Json.Linq;
 
 namespace automation_dph.src.Assertions
 {
@@ -182,6 +183,39 @@ namespace automation_dph.src.Assertions
                 { PinnedLocations.TestScenariosPinnedLocations[29], () => { test.Info(PinnedLocations.BlankValueLocation + actualResultLabel); return Task.CompletedTask; } },
                 { PinnedLocations.TestScenariosPinnedLocations[30], () => { test.Info(PinnedLocations.CloseModal + actualResultLabel); return Task.CompletedTask; } },
                 { PinnedLocations.TestScenariosPinnedLocations[31], () => { test.Info(PinnedLocations.ClearPinLocation + actualResultLabel); return Task.CompletedTask; } },
+                // Tags
+                { Tags.TestScenariosPinnedLocations[0], () => { test.Info(Tags.AddTags + actualResultLabel); return Task.CompletedTask; } },
+                { Tags.TestScenariosPinnedLocations[1], () => { test.Info(Tags.SelectTag + actualResultLabel); return Task.CompletedTask; } },
+                { Tags.TestScenariosPinnedLocations[2], () => { test.Info(Tags.SelectMultipleTag + actualResultLabel); return Task.CompletedTask; } },
+                { Tags.TestScenariosPinnedLocations[3], () => { test.Info(Tags.ListOfTags + actualResultLabel); return Task.CompletedTask; } },
+                { Tags.TestScenariosPinnedLocations[4], () => { test.Info(Tags.BlankValue + actualResultLabel); return Task.CompletedTask; } },
+                { Tags.TestScenariosPinnedLocations[5], () => { test.Info(Tags.MaxLengthValue + actualResultLabel); return Task.CompletedTask; } },
+                { Tags.TestScenariosPinnedLocations[6], () => { test.Info(Tags.DisplayInputtedValue + actualResultLabel); return Task.CompletedTask; } },
+                { Tags.TestScenariosPinnedLocations[7], () => { test.Info(Tags.InvalidValue + actualResultLabel); return Task.CompletedTask; } },
+                { Tags.TestScenariosPinnedLocations[8], () => { test.Info(Tags.AddTags + actualResultLabel); return Task.CompletedTask; } },
+                { Tags.TestScenariosPinnedLocations[9], () => { test.Info(Tags.SelectTag + actualResultLabel); return Task.CompletedTask; } },
+                { Tags.TestScenariosPinnedLocations[10], () => { test.Info(Tags.SelectMultipleTag + actualResultLabel); return Task.CompletedTask; } },
+                { Tags.TestScenariosPinnedLocations[11], () => { test.Info(Tags.ListOfTags + actualResultLabel); return Task.CompletedTask; } },
+                { Tags.TestScenariosPinnedLocations[12], () => { test.Info(Tags.BlankValue + actualResultLabel); return Task.CompletedTask; } },
+                { Tags.TestScenariosPinnedLocations[13], () => { test.Info(Tags.MaxLengthValue + actualResultLabel); return Task.CompletedTask; } },
+                { Tags.TestScenariosPinnedLocations[14], () => { test.Info(Tags.DisplayInputtedValue + actualResultLabel); return Task.CompletedTask; } },
+                { Tags.TestScenariosPinnedLocations[15], () => { test.Info(Tags.InvalidValue + actualResultLabel); return Task.CompletedTask; } },
+                { Tags.TestScenariosPinnedLocations[16], () => { test.Info(Tags.AddTags + actualResultLabel); return Task.CompletedTask; } },
+                { Tags.TestScenariosPinnedLocations[17], () => { test.Info(Tags.SelectTag + actualResultLabel); return Task.CompletedTask; } },
+                { Tags.TestScenariosPinnedLocations[18], () => { test.Info(Tags.SelectMultipleTag + actualResultLabel); return Task.CompletedTask; } },
+                { Tags.TestScenariosPinnedLocations[19], () => { test.Info(Tags.ListOfTags + actualResultLabel); return Task.CompletedTask; } },
+                { Tags.TestScenariosPinnedLocations[20], () => { test.Info(Tags.BlankValue + actualResultLabel); return Task.CompletedTask; } },
+                { Tags.TestScenariosPinnedLocations[21], () => { test.Info(Tags.MaxLengthValue + actualResultLabel); return Task.CompletedTask; } },
+                { Tags.TestScenariosPinnedLocations[22], () => { test.Info(Tags.DisplayInputtedValue + actualResultLabel); return Task.CompletedTask; } },
+                { Tags.TestScenariosPinnedLocations[23], () => { test.Info(Tags.InvalidValue + actualResultLabel); return Task.CompletedTask; } },
+                { Tags.TestScenariosPinnedLocations[24], () => { test.Info(Tags.AddTags + actualResultLabel); return Task.CompletedTask; } },
+                { Tags.TestScenariosPinnedLocations[25], () => { test.Info(Tags.SelectTag + actualResultLabel); return Task.CompletedTask; } },
+                { Tags.TestScenariosPinnedLocations[26], () => { test.Info(Tags.SelectMultipleTag + actualResultLabel); return Task.CompletedTask; } },
+                { Tags.TestScenariosPinnedLocations[27], () => { test.Info(Tags.ListOfTags + actualResultLabel); return Task.CompletedTask; } },
+                { Tags.TestScenariosPinnedLocations[28], () => { test.Info(Tags.BlankValue + actualResultLabel); return Task.CompletedTask; } },
+                { Tags.TestScenariosPinnedLocations[29], () => { test.Info(Tags.MaxLengthValue + actualResultLabel); return Task.CompletedTask; } },
+                { Tags.TestScenariosPinnedLocations[30], () => { test.Info(Tags.DisplayInputtedValue + actualResultLabel); return Task.CompletedTask; } },
+                { Tags.TestScenariosPinnedLocations[31], () => { test.Info(Tags.InvalidValue + actualResultLabel); return Task.CompletedTask; } },
             };
 
             if (addNewPostScenarios.TryGetValue(testScenariosDescription, out var action))
@@ -398,6 +432,7 @@ namespace automation_dph.src.Assertions
                 else if (testScenariosDescription.Contains("Height")) { Assert.IsTrue(textCount <= 7); }
                 else if (testScenariosDescription.Contains("Depth")) { Assert.IsTrue(textCount <= 7); }
                 else if (testScenariosDescription.Contains("Weight")) { Assert.IsTrue(textCount <= 7); }
+                else if (testScenariosDescription.Contains("Tags")) { Assert.IsTrue(textCount <= 20); }
 
 
                 // Log a pass status with a discription
@@ -739,7 +774,101 @@ namespace automation_dph.src.Assertions
             }
         }
 
+        public async Task ShouldDisplayTagsOnTheList(string value, string testScenariosDescription, string screenShotFolderName, string screenShotFileName)
+        {
+            // Create a test instance in ExtentReports
+            ExtentReports Extent = GetInstance();
+            test = Extent.CreateTest(testScenariosDescription);
 
+            try
+            {
+                await PageTest.Expect(Page.Locator("//div[@class='css-ksdk4d-menu creatable-tags__menu']")).ToContainTextAsync(value);
+
+                // Log a pass status with a discription
+                test.Pass($"<b>PASSED.</b> Actual Result: Tags successfully added. <br>");
+            }
+            catch (Exception e)
+            {
+                // Log a fail status with the exception message
+                test.Fail("<b>FAILED.</b> The expected add tags did not match.");
+                ex = e;
+                StepsToReplicateForReporting(test, testScenariosDescription);
+                await TakeAScreenshot($"{screenShotFolderName}", $"{screenShotFileName} - FAILED");
+            }
+            Extent.Flush();
+        }
+
+        public async Task ShouldDisplaySelectedValue(string value, string testScenariosDescription, string screenShotFolderName, string screenShotFileName)
+        {
+            // Create a test instance in ExtentReports
+            ExtentReports Extent = GetInstance();
+            test = Extent.CreateTest(testScenariosDescription);
+
+            try
+            {
+                await PageTest.Expect(Page.Locator(".creatable-tags__value-container.creatable-tags__value-container--has-value.creatable-tags__value-container--is-multi.css-1hwfws3")).ToContainTextAsync(value);
+
+                // Log a pass status with a discription
+                test.Pass($"<b>PASSED.</b> Actual Result: Selected {Page.Locator(".creatable-tags__value-container.creatable-tags__value-container--has-value.creatable-tags__value-container--is-multi.css-1hwfws3").InnerTextAsync().GetAwaiter().GetResult()} tags display. <br>");
+            }
+            catch (Exception e)
+            {
+                // Log a fail status with the exception message
+                test.Fail("<b>FAILED.</b> The expected tags display did not match.");
+                ex = e;
+                StepsToReplicateForReporting(test, testScenariosDescription);
+                await TakeAScreenshot($"{screenShotFolderName}", $"{screenShotFileName} - FAILED");
+            }
+            Extent.Flush();
+        }
+
+        public async Task ShouldDisplayListOfTags(string testScenariosDescription, string screenShotFolderName, string screenShotFileName)
+        {
+            // Create a test instance in ExtentReports
+            ExtentReports Extent = GetInstance();
+            test = Extent.CreateTest(testScenariosDescription);
+
+            try
+            {
+                await PageTest.Expect(Page.Locator("//div[@class='css-ksdk4d-menu creatable-tags__menu']")).ToBeVisibleAsync();
+
+                // Log a pass status with a discription
+                test.Pass($"<b>PASSED.</b> Actual Result: All tags display. <br> {Page.Locator("//div[@class='css-ksdk4d-menu creatable-tags__menu']").InnerTextAsync().GetAwaiter().GetResult()} <br>");
+            }
+            catch (Exception e)
+            {
+                // Log a fail status with the exception message
+                test.Fail("<b>FAILED.</b> The expected list of tags did not match.");
+                ex = e;
+                StepsToReplicateForReporting(test, testScenariosDescription);
+                await TakeAScreenshot($"{screenShotFolderName}", $"{screenShotFileName} - FAILED");
+            }
+            Extent.Flush();
+        }
+
+        public async Task ShouldNotAbleToInputValue(string testScenariosDescription, string screenShotFolderName, string screenShotFileName)
+        {
+            // Create a test instance in ExtentReports
+            ExtentReports Extent = GetInstance();
+            test = Extent.CreateTest(testScenariosDescription);
+
+            try
+            {
+                await PageTest.Expect(Page.Locator(".creatable-tags__multi-value.css-1nhhl39-multiValue")).Not.ToBeVisibleAsync();
+
+                // Log a pass status with a discription
+                test.Pass($"<b>PASSED.</b> Actual Result: Blank/Max value not accepted. <br>");
+            }
+            catch (Exception e)
+            {
+                // Log a fail status with the exception message
+                test.Fail("<b>FAILED.</b> The expected display did not match.");
+                ex = e;
+                StepsToReplicateForReporting(test, testScenariosDescription);
+                await TakeAScreenshot($"{screenShotFolderName}", $"{screenShotFileName} - FAILED");
+            }
+            Extent.Flush();
+        }
     }
 }
 
